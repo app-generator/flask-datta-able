@@ -1,14 +1,14 @@
 {
-  "name": "boilerplate-code-flask-dashboard",
+  "name": "flask-dashboard-dattaable",
   "mastertemplate": "boilerplate-code-flask-dashboard",
   "version": "1.0.1",
   "description": "Template project - Flask Dashboard Boilerplate Code.",
   "repository": {
       "type": "git",
-      "url": "https://github.com/app-generator/boilerplate-code-flask-dashboard"
+      "url": "https://github.com/app-generator/flask-dashboard-dattaable"
   },
   "bugs": {
-      "url": "https://github.com/app-generator/boilerplate-code-flask-dashboard/issues",
+      "url": "https://github.com/app-generator/flask-dashboard-dattaable/issues",
       "email": "support@appseed.us"
   },
   "author": "AppSeed App Generator <support@appseed.us> (https://appseed.us)",

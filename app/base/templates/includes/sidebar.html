@@ -2,11 +2,11 @@
     <nav class="pcoded-navbar">
         <div class="navbar-wrapper">
             <div class="navbar-brand header-logo">
-                <a target="_blank" href="https://appseed.us/boilerplate-code/flask-dashboard" class="b-brand">
+                <a target="_blank" href="https://appseed.us/admin-dashboards/flask-dashboard-dattaable" class="b-brand">
                     <div class="b-bg">
                         <i class="feather icon-trending-up"></i>
                     </div>
-                    <span class="b-title">Flask Dashboard</span>
+                    <span class="b-title">Flask DattaAble</span>
                 </a>
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>
@@ -64,7 +64,7 @@
 
                     <li data-username="Disabled Menu" class="nav-item">
                         <a href={{ url_for('base_blueprint.logout') }} class="nav-link">
-                            <span class="pcoded-micon"><i class="feather icon-power"></i></span><span class="pcoded-mtext">Logout [{{ current_user.username }}]</span>
+                            <span class="pcoded-micon"><i class="feather icon-power"></i></span><span class="pcoded-mtext">Logout [ {{ current_user.username }} ]</span>
                         </a>
                     </li>
                 </ul>

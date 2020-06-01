@@ -12,11 +12,11 @@ Copyright (c) 2019 - present [AppSeed](http://appseed.us/)
 | ---------------------------------- | --- |
 | License Type | MIT  |
 | Use for print | **YES** |
-| Create single personal website/app | **YES** | 
+| Create single personal website/app | **YES** |
 | Create single website/app for client | **YES** | 
-| Create multiple website/apps for clients | **YES** | 
-| Create multiple SaaS applications | **YES** | 
-| End-product paying users | **YES** | 
+| Create multiple website/apps for clients | **YES** |
+| Create multiple SaaS applications | **YES** |
+| End-product paying users | **YES** |
 | Product sale | **YES** |
 | Remove footer credits | **YES** |
 | --- | --- |
