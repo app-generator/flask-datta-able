@@ -277,4 +277,4 @@ Visit `http://localhost:8001` in your browser. The app should be up & running.
 <br />
 
 ---
-[Flask Dashboard](https://appseed.us/admin-dashboards/flask?ref=gh) Datta Able - Provided by **AppSeed** [Web App Generator](https://appseed.us/app-generator).
+[Flask Dashboard](https://appseed.us/admin-dashboards/flask?ref=gh) Datta Able - Provided by **AppSeed [App Generator](https://appseed.us/app-generator)**.
