@@ -2,9 +2,10 @@
 
 ## [1.0.1] 2020-06-01
 ### Improvements
-- Project rebuilt from master template [boilerplate-code-flask-dashboard](https://github.com/app-generator/boilerplate-code-flask-dashboard) 
-- Update Licensing information
-- Add CHANGELOG.md to track all changes
+
+- Bump UI: [Jinja Datta Able](https://github.com/app-generator/jinja-datta-able/releases) v1.0.1
+- UI: [Datta Able](https://github.com/codedthemes/datta-able-bootstrap-dashboard) 2021-01-01 snapshot
+- Codebase: [Flask Dashboard](https://github.com/app-generator/boilerplate-code-flask-dashboard/releases) v1.0.3
 
 ## [1.0.0] 2020-02-07
 ### Initial Release
