@@ -20,7 +20,7 @@
 > Links
 
 - [Flask Datta Able](https://appseed.us/admin-dashboards/flask-dashboard-dattaable) - the product page
-- [Flask Datta Able - Demo](flask-datta-able.appseed-srv1.com/) - Default login credentials ** *test / pass* **
+- [Flask Datta Able - Demo](https://flask-datta-able.appseed-srv1.com/) - Default login credentials ** *test / pass* **
 - [Flask Tutorial](https://github.com/app-generator/tutorial-flask) - Getting started with Flask
 
 <br />
