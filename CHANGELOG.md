@@ -1,6 +1,6 @@
 # Change Log
 
-## [1.0.1] 2020-06-01
+## [1.0.1] 2020-01-17
 ### Improvements
 
 - Bump UI: [Jinja Datta Able](https://github.com/app-generator/jinja-datta-able/releases) v1.0.1
