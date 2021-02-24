@@ -36,7 +36,7 @@ PRO versions include **Premium UI Kits**, Lifetime updates and **24/7 LIVE Suppo
 <br />
 <br />
 
-![Flask Datta Able - Starter project coded in Flask.](https://raw.githubusercontent.com/app-generator/flask-dashboard-dattaable/master/media/flask-dashboard-dattaable-screen.png)
+![Flask Datta Able - Starter project coded in Flask.](https://raw.githubusercontent.com/app-generator/flask-datta-able/master/media/flask-dashboard-dattaable-screen.png)
 
 <br />
 
@@ -44,8 +44,8 @@ PRO versions include **Premium UI Kits**, Lifetime updates and **24/7 LIVE Suppo
 
 ```bash
 $ # Get the code
-$ git clone https://github.com/app-generator/flask-dashboard-dattaable.git
-$ cd flask-dashboard-dattaable
+$ git clone https://github.com/app-generator/flask-datta-able.git
+$ cd flask-datta-able
 $
 $ # Virtualenv modules installation (Unix based systems)
 $ virtualenv env
@@ -211,8 +211,8 @@ The application can be easily executed in a docker container. The steps:
 > Get the code
 
 ```bash
-$ git clone https://github.com/app-generator/flask-dashboard-dattaable.git
-$ cd flask-dashboard-dattaable
+$ git clone https://github.com/app-generator/flask-datta-able.git
+$ cd flask-datta-able
 ```
 
 > Start the app in Docker
