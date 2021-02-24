@@ -36,7 +36,7 @@ PRO versions include **Premium UI Kits**, Lifetime updates and **24/7 LIVE Suppo
 <br />
 <br />
 
-![Flask Dashboard DattaAble - Starter project coded in Flask.](https://raw.githubusercontent.com/app-generator/flask-dashboard-dattaable/master/media/flask-dashboard-dattaable-screen.png)
+![Flask Datta Able - Starter project coded in Flask.](https://raw.githubusercontent.com/app-generator/flask-dashboard-dattaable/master/media/flask-dashboard-dattaable-screen.png)
 
 <br />
 
