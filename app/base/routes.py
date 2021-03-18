@@ -93,14 +93,6 @@ def logout():
     logout_user()
     return redirect(url_for('base_blueprint.login'))
 
-@blueprint.route('/shutdown')
-def shutdown():
-    func = request.environ.get('werkzeug.server.shutdown')
-    if func is None:
-        raise RuntimeError('Not running with the Werkzeug Server')
-    func()
-    return 'Server shutting down...'
-
 ## Errors
 
 @login_manager.unauthorized_handler

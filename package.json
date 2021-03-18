@@ -1,7 +1,7 @@
 {
     "name": "flask-dashboard-dattaable",
     "mastertemplate": "boilerplate-code-flask-dashboard",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Template project - Flask Boilerplate Code",
     "repository": {
         "type": "git",
