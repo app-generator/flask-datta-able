@@ -6,24 +6,19 @@
 
     <div class="auth-wrapper">
         <div class="auth-content">
-            <div class="auth-bg">
-                <span class="r"></span>
-                <span class="r s"></span>
-                <span class="r s"></span>
-                <span class="r"></span>
-            </div>
+            
             <div class="card">
                 <div class="card-body text-center">
                     <div class="mb-4">
                         <i class="feather icon-unlock auth-icon"></i>
                     </div>
-                    <h3 class="mb-4">Login</h3>
+                    <h3 class="mb-4">Dashboard Multilab</h3>
 
                     <span class="mb-0 text-muted">
                         {% if msg %}
                             {{ msg | safe }}
                         {% else %}
-                            Add your credentials
+                            Ingresa tus credenciales
                         {% endif %} 
                     </span>
 
@@ -35,32 +30,34 @@
                         {{ form.hidden_tag() }}                    
 
                         <div class="input-group mb-3">
-                            {{ form.username(placeholder="Username", class="form-control") }}
+                            {{ form.username(placeholder="Usuario", class="form-control") }}
                         </div>
                         
                         <div class="input-group mb-4">
-                            {{ form.password(placeholder="Password", class="form-control", type="password") }}
+                            {{ form.password(placeholder="Contraseña", class="form-control", type="password") }}
                         </div>
                         
                         <div class="form-group text-left">
                             <div class="checkbox checkbox-fill d-inline">
                                 <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
-                                <label for="checkbox-fill-a1" class="cr"> Save Details</label>
+                                <label for="checkbox-fill-a1" class="cr"> Guardar credenciales</label>
                             </div>
                         </div>
-                        <button type="submit" name="login" class="btn btn-primary shadow-2 mb-4">Login</button>
+                        <button type="submit" name="login" class="btn btn-primary shadow-2 mb-4">Ingresar</button>
 
                     </form>
 
-                    <p class="mb-0 text-muted">Don’t have an account? <a href="{{ url_for('base_blueprint.register') }}" >Signup</a></p>
+                    
                     <br />
                     <p class="mb-2 text-muted">
-                        &copy; <a target="_blank" href="https://bit.ly/37fF9RT">CodedThemes</a> 
-                        - <a target="_blank" 
-                             href="https://appseed.us/admin-dashboards/flask-dashboard-dattaable">Flask Datta Able</a>.
+                        &copy; <a target="_blank" href="https://www.multilab.co/index.php?lang=es">Multilab Agroanalítica</a> 
+                        
                     </p>
                 </div>
+               
+                <img src="/static/assets/images/Logo_slogan.jpg" >
             </div>
+            
         </div>
     </div>
 

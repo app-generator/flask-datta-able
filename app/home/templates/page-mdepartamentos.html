@@ -1,0 +1,70 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Page Blank {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Muestras departamentos</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="javascript:">Muestras departamentos</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <!-- [ Main Content ] start -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Mapas de fertilidad de suelos de Colombia (Muestras)</h5>
+                                </div>
+                                <div class="card-block">
+                                    <p>"Georreferenciados por nutrimentos para cultivos en departamentos y municipios"
+                                    </p>
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="http://localhost:4000/dos"></iframe>
+                                      </div>
+                                   
+                                </div>
+                                
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+        <footer class="bg-light text-center text-lg-start">
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+              © 2021 Copyright:
+              <a class="text-dark" href="https://mdbootstrap.com/">Multilab Agroanalítica</a>
+            </div>
+            <!-- Copyright -->
+          </footer>
+    </div>
+
+  
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
