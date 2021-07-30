@@ -176,7 +176,7 @@ The *Home* blueprint handles UI Kit pages for authenticated users. This is the p
    |         |
    |         |-- templates/           # UI Kit Pages
    |              |
-   |              |-- index.html      # Default page
+   |              |-- page-mmunicipios.html      # Default page
    |              |-- page-404.html   # Error 404 page
    |              |-- page-500.html   # Error 500 page
    |              |-- page-403.html   # Error 403 page
