@@ -10,7 +10,6 @@
 - Improved Files organization
 - Optimize imports
 - Docker Scripts Update
-- Gulp Tooling  (SASS Compilation)
 
 ## [1.0.3] 2021-05-16
 ### Dependencies Update
