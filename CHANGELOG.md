@@ -1,5 +1,13 @@
 # Change Log
 
+## Unreleased
+### Fixes
+
+- 2021-11-08 - `v1.0.5-rc1`
+  - ImportError: cannot import name 'TextField' from 'wtforms'
+    - Problem caused by `WTForms-3.0.0`
+    - Fix: use **WTForms==2.3.3**
+
 ## [1.0.4] 2021-11-06
 ### Improvements
 
