@@ -20,7 +20,6 @@ Open-source **[Flask Dashboard](https://appseed.us/admin-dashboards/flask)** gen
 
 - [Datta Able Flask](https://appseed.us/admin-dashboards/flask-datta-able) - product page
 - [Datta Able Flask](https://flask-datta-able.appseed-srv1.com/) - LIVE deployment
-- [Datta Able Flask](https://docs.appseed.us/products/flask-dashboards/datta-able) - product documentation 
 
 <br />
 
@@ -36,9 +35,7 @@ $ cd flask-datta-able
 > Start the app in Docker
 
 ```bash
-$ docker-compose pull   # download dependencies 
-$ docker-compose build  # local set up
-$ docker-compose up -d  # start the app 
+$ docker-compose up --build 
 ```
 
 Visit `http://localhost:85` in your browser. The app should be up & running.
