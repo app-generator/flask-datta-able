@@ -18,7 +18,7 @@ Open-source **[Flask Dashboard](https://appseed.us/admin-dashboards/flask)** gen
 
 > Links
 
-- 👉 [Datta Able Flask](https://appseed.us/admin-dashboards/flask-datta-able) - product page
+- 👉 [Datta Able Flask](https://appseed.us/admin-dashboards/flask-datta-able) - Product page
 - 👉 [Datta Able Flask](https://flask-datta-able.appseed-srv1.com/) - LIVE deployment
 
 <br />
