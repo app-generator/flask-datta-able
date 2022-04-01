@@ -3,7 +3,7 @@
 ## [1.0.6] 2022-03-30
 ### Fixes
 
-- Patch #4 - `ImportError: cannot import name 'safe_str_cmp' from 'werkzeug.security'`
+- **Patch ImportError**: [cannot import name 'safe_str_cmp' from 'werkzeug.security'](https://docs.appseed.us/content/how-to-fix/importerror-cannot-import-name-safe_str_cmp-from-werkzeug.security)
   - `Werkzeug` deprecation of `safe_str_cmp` starting with version `2.1.0`
     - https://github.com/pallets/werkzeug/issues/2359
 
