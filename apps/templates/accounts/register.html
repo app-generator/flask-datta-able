@@ -21,7 +21,7 @@
 
                     <span class="mb-0 text-muted">
                         {% if msg %}
-                            {{ msg | safe }}
+                            <span class="text-danger">{{ msg | safe }}</span>
                         {% else %}
                             Add your credentials
                         {% endif %} 
@@ -31,7 +31,12 @@
                     <br />
 
                     <!-- Hide the form on success -->
-                    {% if not success %}
+                    {% if success %}
+
+                        <a href="{{ url_for('authentication_blueprint.login') }}" class="btn btn-primary shadow-2 mb-4">Sign IN</a>
+
+                    {% else %}
+
                         <form role="form" method="post" action="">
 
                             {{ form.hidden_tag() }}                    
@@ -59,9 +64,11 @@
                         </form>
                         
                         <p class="mb-0 text-muted">Already have an account? <a href="{{ url_for('authentication_blueprint.login') }}">Login</a></p>
-                        <br />
-                    {% endif %}
+                       
 
+                    {% endif %}
+                    
+                    <br />
                     <p class="mb-2 text-muted">
                         &copy; <a target="_blank" href="https://bit.ly/37fF9RT">CodedThemes</a> 
                         - <a target="_blank" 

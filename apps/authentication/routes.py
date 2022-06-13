@@ -17,11 +17,9 @@ from apps.authentication.models import Users
 
 from apps.authentication.util import verify_pass
 
-
 @blueprint.route('/')
 def route_default():
     return redirect(url_for('authentication_blueprint.login'))
-
 
 # Login & Registration
 
@@ -83,8 +81,11 @@ def register():
         db.session.add(user)
         db.session.commit()
 
+        # Delete user from session
+        logout_user()        
+
         return render_template('accounts/register.html',
-                               msg='User created please <a href="/login">login</a>',
+                               msg='User created successfully.',
                                success=True,
                                form=create_account_form)
 
@@ -97,13 +98,11 @@ def logout():
     logout_user()
     return redirect(url_for('authentication_blueprint.login'))
 
-
 # Errors
 
 @login_manager.unauthorized_handler
 def unauthorized_handler():
     return render_template('home/page-403.html'), 403
-
 
 @blueprint.errorhandler(403)
 def access_forbidden(error):
