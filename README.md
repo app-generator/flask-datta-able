@@ -259,7 +259,11 @@ The project is coded using blueprints, app factory pattern, dual configuration p
 Designed for those who like bold elements and beautiful websites, **Datta Able** is the most stylish Bootstrap 4 Admin Template compare to all other Bootstrap admin templates. It comes with high feature-rich pages and components with fully developer-centric code. 
 
 - 👉 [Flask Datta PRO](https://appseed.us/product/datta-able-pro/flask/) - product page
-- 👉 [Flask Datta PRO](https://flask-datta-able-pro.appseed-srv1.com) - LIVE Deployment
+  - ✅ `Improved Authentication`, Password Strength Checker
+  - ✅ `Automatic User Suspension` on multiple failed logins
+  - ✅ `Extended User profile`
+  - ✅ `User Roles`
+  - ✅ `Users Management` (restricted to admins)
 
 <br >
 
