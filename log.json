@@ -1,0 +1,23 @@
+{
+    "backend": "flask",
+    "db_name": "",
+    "db_pass": "",
+    "db_type": "sqlite",
+    "db_user": "",
+    "dbms": "1",
+    "description": "generated product",
+    "design": "datta-able",
+    "docker": "1",
+    "err_code": 0,
+    "frontend": "",
+    "heroku": "0",
+    "pattern": "mvc",
+    "pro": "0",
+    "task_id": "eb990b71-a3a1-498c-90ad-948666370f13",
+    "task_info": "Task is finished",
+    "task_output": "eb990b71-a3a1-498c-90ad-948666370f13.zip",
+    "task_result": "SUCCESS",
+    "task_state": "FINISHED",
+    "task_ts_end": "2022-06-23-18-20-50",
+    "task_ts_start": "2022-06-23-18-20-40"
+}
