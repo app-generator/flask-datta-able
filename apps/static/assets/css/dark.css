@@ -75,7 +75,8 @@ body.dark {
   body.dark .table thead th {
     border-top: 1px solid #334756; }
   body.dark .table td, body.dark .table th {
-    border-bottom: 1px solid #334756; }
+    border-bottom: 1px solid #334756;
+    border-top: 1px solid #334756; }
   body.dark .border-bottom {
     border-bottom: 1px solid #334756 !important; }
   body.dark .nav-tabs .nav-item.show .nav-link,
