@@ -20,6 +20,15 @@ class Config(object):
     # Assets Management
     ASSETS_ROOT = os.getenv('ASSETS_ROOT', '/static/assets')    
     
+    SOCIAL_AUTH_GITHUB  = False
+
+    GITHUB_ID      = os.getenv('GITHUB_ID')
+    GITHUB_SECRET  = os.getenv('GITHUB_SECRET')
+
+    # Enable/Disable Github Social Login    
+    if GITHUB_ID and GITHUB_SECRET:
+         SOCIAL_AUTH_GITHUB  = True
+
 class ProductionConfig(Config):
     DEBUG = False
 
