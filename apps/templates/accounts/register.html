@@ -14,12 +14,10 @@
             </div>
             <div class="card">
                 <div class="card-body text-center">
-                    <div class="mb-4">
-                        <i class="feather icon-user-plus auth-icon"></i>
-                    </div>
-                    <h3 class="mb-4">Sign up</h3>
 
-                    <span class="mb-0 text-muted">
+                    <h3 class="mb-4">Sign UP</h3>
+
+                    <span class="mb-2 text-muted">
                         {% if msg %}
                             <span class="text-danger">{{ msg | safe }}</span>
                         {% else %}
@@ -32,9 +30,7 @@
 
                     <!-- Hide the form on success -->
                     {% if success %}
-
                         <a href="{{ url_for('authentication_blueprint.login') }}" class="btn btn-primary shadow-2 mb-4">Sign IN</a>
-
                     {% else %}
 
                         <form role="form" method="post" action="">
@@ -53,12 +49,6 @@
                                 {{ form.password(placeholder="Password", class="form-control", type="password") }}
                             </div>
                             
-                            <div class="form-group text-left">
-                                <div class="checkbox checkbox-fill d-inline">
-                                    <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
-                                    <label for="checkbox-fill-a1" class="cr"> Agree with <a href="#">terms</a></label>
-                                </div>
-                            </div>
                             <button type="submit" name="register" class="btn btn-primary shadow-2 mb-4">Register</button>
 
                         </form>
@@ -68,12 +58,18 @@
 
                     {% endif %}
                     
-                    <br />
-                    <p class="mb-2 text-muted">
-                        &copy; <a target="_blank" href="https://bit.ly/37fF9RT">CodedThemes</a> 
-                        - <a target="_blank" 
-                             href="https://appseed.us/product/datta-able/flask/">Flask Datta Able</a>.
-                    </p>
+                    {% if not success and config.SOCIAL_AUTH_GITHUB %}
+                        <div class="mx-2">
+
+                            <a href="{{url_for('authentication_blueprint.login_github')}}" class="btn">
+                                <i class="feather icon-github auth-icon"></i>
+                                
+                            </a>
+                            <br />
+                            <span class="mx-2">Sign UP with GitHub</span>
+                        </div>
+                    {% endif %}
+
                 </div>
             </div>
         </div>
