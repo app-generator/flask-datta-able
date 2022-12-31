@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: flask-datta-able
+    name: flask-datta
     plan: starter
     env: python
     region: frankfurt  # region should be same as your database region.
