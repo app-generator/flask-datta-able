@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.13] 2023-01-02
+### Changes
+
+- `DOCS Update` (readme)
+  - [Flask Gradient Able - Go LIVE](https://www.youtube.com/watch?v=v0Cf6nM77bU) (`video presentation`)
+
 ## [1.0.12] 2022-12-31
 ### Changes
 
