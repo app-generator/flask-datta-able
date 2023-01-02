@@ -4,7 +4,7 @@
 ### Changes
 
 - `DOCS Update` (readme)
-  - [Flask Gradient Able - Go LIVE](https://www.youtube.com/watch?v=v0Cf6nM77bU) (`video presentation`)
+  - [Flask Datta Able - Go LIVE](https://www.youtube.com/watch?v=ZpKy2j9UU84) (`video presentation`)
 
 ## [1.0.12] 2022-12-31
 ### Changes
