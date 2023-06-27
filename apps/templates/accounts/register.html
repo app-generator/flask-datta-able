@@ -1,78 +1,82 @@
-{% extends "layouts/base-fullscreen.html" %}
+{% extends "layouts/base-fullscreen.html" %} {% block title %} Register {%
+endblock %} {% block content %}
 
-{% block title %} Login {% endblock %}
-
-{% block content %}   
-
-    <div class="auth-wrapper">
-        <div class="auth-content">
-            <div class="auth-bg">
-                <span class="r"></span>
-                <span class="r s"></span>
-                <span class="r s"></span>
-                <span class="r"></span>
-            </div>
-            <div class="card">
-                <div class="card-body text-center">
-
-                    <h3 class="mb-4">Sign UP</h3>
-
-                    <span class="mb-2 text-muted">
-                        {% if msg %}
-                            <span class="text-danger">{{ msg | safe }}</span>
-                        {% else %}
-                            Add your credentials
-                        {% endif %} 
-                    </span>
-
-                    <br />
-                    <br />
-
-                    <!-- Hide the form on success -->
-                    {% if success %}
-                        <a href="{{ url_for('authentication_blueprint.login') }}" class="btn btn-primary shadow-2 mb-4">Sign IN</a>
-                    {% else %}
-
-                        <form role="form" method="post" action="">
-
-                            {{ form.hidden_tag() }}                    
-
-                            <div class="input-group mb-3">
-                                {{ form.username(placeholder="Username", class="form-control") }}
-                            </div>
-                            
-                            <div class="input-group mb-3">
-                                {{ form.email(placeholder="Email", class="input form-control", type="email") }}
-                            </div>
-
-                            <div class="input-group mb-4">
-                                {{ form.password(placeholder="Password", class="form-control", type="password") }}
-                            </div>
-                            
-                            <button type="submit" name="register" class="btn btn-primary shadow-2 mb-4">Register</button>
-
-                        </form>
-                        
-                        <p class="mb-0 text-muted">Already have an account? <a href="{{ url_for('authentication_blueprint.login') }}">Login</a></p>
-                       
-
-                    {% endif %}
-                    
-                    {% if not success and config.SOCIAL_AUTH_GITHUB %}
-                        <div class="mx-2">
-
-                            <a href="{{url_for('authentication_blueprint.login_github')}}" class="btn">
-                                <i class="feather icon-github auth-icon"></i>
-                                
-                            </a>
-                            <br />
-                            <span class="mx-2">Sign UP with GitHub</span>
-                        </div>
-                    {% endif %}
-
-                </div>
-            </div>
-        </div>
+<div class="auth-wrapper">
+  <div class="auth-content">
+    <div class="auth-bg">
+      <span class="r"></span>
+      <span class="r s"></span>
+      <span class="r s"></span>
+      <span class="r"></span>
     </div>
+    <div class="card">
+      <div class="card-body text-center">
+        <h3 class="mb-4">Sign Up</h3>
+
+        <span class="mb-2 text-muted">
+          {% if msg %}
+          <span class="text-danger">{{ msg | safe }}</span>
+          {% else %} Add your credentials {% endif %}
+        </span>
+
+        <br />
+        <br />
+
+        <!-- Hide the form on success -->
+        {% if success %}
+        <a
+          href="{{ url_for('authentication_blueprint.record') }}"
+          class="btn btn-primary shadow-2 mb-4"
+          >Proceed</a
+        >
+        {% else %}
+
+        <form role="form" method="post" action="">
+          {{ form.hidden_tag() }}
+
+          <div class="input-group mb-3">
+            {{ form.username(placeholder="Username", class="form-control") }}
+          </div>
+
+          <div class="input-group mb-3">
+            {{ form.email(placeholder="Email", class="input form-control",
+            type="email") }}
+          </div>
+
+          <div class="input-group mb-4">
+            {{ form.password(placeholder="Password", class="form-control",
+            type="password") }}
+          </div>
+
+          <button
+            type="submit"
+            name="register"
+            class="btn btn-primary shadow-2 mb-4"
+          >
+            Register
+          </button>
+        </form>
+
+        <p class="mb-0 text-muted">
+          Already have an account?
+          <a href="{{ url_for('authentication_blueprint.login') }}">Login</a>
+        </p>
+
+        {% endif %} {% if not success and config.SOCIAL_AUTH_GITHUB %}
+        <div class="mx-2">
+          <a
+            href="{{url_for('authentication_blueprint.login_github')}}"
+            class="btn"
+          >
+            <i class="feather icon-github auth-icon"></i>
+          </a>
+          <br />
+          <span class="mx-2">Sign UP with GitHub</span>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock content %}

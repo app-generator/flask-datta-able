@@ -17,10 +17,9 @@ class Users(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id            = db.Column(db.Integer, primary_key=True)
-    username      = db.Column(db.String(64), unique=True)
-    email         = db.Column(db.String(64), unique=True)
+    username      = db.Column(db.String(64), unique=True,nullable=False)
+    email         = db.Column(db.String(64), unique=True,nullable=False)
     password      = db.Column(db.LargeBinary)
-
     oauth_github  = db.Column(db.String(100), nullable=True)
 
     def __init__(self, **kwargs):

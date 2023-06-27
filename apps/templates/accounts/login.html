@@ -33,7 +33,7 @@
                         {{ form.hidden_tag() }}                    
 
                         <div class="input-group mb-3">
-                            {{ form.username(placeholder="Username or eMail", class="form-control") }}
+                            {{ form.username(placeholder="Username or Email", class="form-control") }}
                         </div>
                         
                         <div class="input-group mb-4">
@@ -44,7 +44,7 @@
 
                     </form>
 
-                    <p class="mb-0 text-muted">Don’t have an account? <a href="{{ url_for('authentication_blueprint.register') }}" >Sign UP</a></p>
+                    <p class="mb-0 text-muted">Don’t have an account? <a href="{{ url_for('authentication_blueprint.register') }}" >Sign Up</a></p>
                     
                     {% if config.SOCIAL_AUTH_GITHUB %}
                         <div class="mx-2">
@@ -54,7 +54,7 @@
                                 
                             </a>
                             <br />
-                            <span class="mx-2">Sign IN with GitHub</span>
+                            <span class="mx-2">Sign In with GitHub</span>
                         </div>
                     {% endif %}
                 </div>

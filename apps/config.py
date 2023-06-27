@@ -50,7 +50,7 @@ class Config(object):
                 DB_PASS,
                 DB_HOST,
                 DB_PORT,
-                DB_NAME
+                DB_NAME,
             ) 
 
             USE_SQLITE  = False

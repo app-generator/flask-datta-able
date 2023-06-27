@@ -1,0 +1,32 @@
+{% extends "layouts/base-fullscreen.html" %} 
+
+{% block title %} Record Voice Samples {%endblock %} 
+
+{% block content %}
+
+<div class="auth-wrapper">
+  <div class="auth-content">
+    <div class="auth-bg">
+      <span class="r"></span>
+      <span class="r s"></span>
+      <span class="r s"></span>
+      <span class="r"></span>
+    </div>
+    <div class="card">
+      <div class="card-body text-center">
+        <h4 class="mb-4">
+          Press the mic button and read the text displayed below
+        </h4>
+        
+        <button
+          type="button"
+          class="btn btn-danger"
+        >
+          <i class="feather icon-mic"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
