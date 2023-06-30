@@ -138,7 +138,7 @@ def register():
 def record():
     return render_template("accounts/record_voice.html", text = sentences[0])
 
-@blueprint.route("/record_samples", methods=["POST"])
+@blueprint.route("/record_samples", methods=["GET","POST"])
 def record_samples():
     global num_of_samples
     audio = sd.rec(int(sample_rate*duration), samplerate=sample_rate, channels=1) 
@@ -152,8 +152,7 @@ def record_samples():
     elif(num_of_samples<21):
         return render_template('accounts/record_voice.html', text = sentences[num_of_samples-10])
     else:
-        login_form = LoginForm(request.form)
-        return render_template('accounts/login.html', form=login_form)
+        return redirect(url_for("authentication_blueprint.login"))
 
 
 @blueprint.route("/logout")
