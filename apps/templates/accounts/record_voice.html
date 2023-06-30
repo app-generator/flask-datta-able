@@ -17,13 +17,17 @@
         <h4 class="mb-4">
           Press the mic button and read the text displayed below
         </h4>
-        
-        <button
-          type="button"
-          class="btn btn-danger"
-        >
-          <i class="feather icon-mic"></i>
-        </button>
+        <div class="card bg-warning text-dark my-3">
+          <div class="card-body">
+              <h5>{{text}}</h5>
+          </div>
+        </div>
+        <form action="" method="POST">
+          <a href="{{url_for('authentication_blueprint.record_samples')}}"
+             class="btn btn-danger my-3" id="record_btn">
+              <img src="https://cdn.pixabay.com/photo/2018/05/15/20/47/microphone-3404243_1280.png" style="height: 50px; width: 50px;" alt="mic image">
+          </a>
+        </form>
       </div>
     </div>
   </div>
