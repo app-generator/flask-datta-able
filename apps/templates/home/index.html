@@ -16,28 +16,30 @@
               <!--[ Upload ppt ] start-->
               <div class="col-md-6 col-xl-12">
                 <div class="card daily-sales">
-                  <div class="card-block">
-                    <h6 class="mb-4">Choose Presentation File</h6>
-                    <div class="row d-flex align-items-center">
-                      <div class="col-6">
-                        <h3 class="f-w-300 d-flex align-items-center m-b-0">
-                          Upload here
-                        </h3>
-                      </div>
-                      <div class="col-3">
-                        <p>PPT name here</p>
-                      </div>
-                      <div class="col-3">
-                        <button
-                          type="button"
-                          class="btn btn-primary"
-                          onclick="alert('Insert upload PPT code here at this onclick')"
-                        >
-                          Upload
-                        </button>
+                  <form
+                    action="/open_presentation"
+                    method="post"
+                    enctype="multipart/form-data"
+                  >
+                    <div class="card-block">
+                      <h6 class="mb-4">Choose Presentation File</h6>
+                      <div class="row d-flex align-items-center">
+                        <div class="col-6">
+                          <input
+                            type="file"
+                            name="file_path"
+                            id="file_path"
+                            required
+                          />
+                        </div>
+                        <div class="col-6">
+                          <button type="submit" class="btn btn-primary">
+                            Upload
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </form>
                 </div>
               </div>
               <!--[ Upload ppt ] end-->
@@ -52,9 +54,10 @@
                     <div class="table-responsive">
                       <table class="table table-hover">
                         <tbody>
+                          {% for file in files %}
                           <tr class="unread">
                             <td>
-                              <h6 class="ml-5">Test.pptx</h6>
+                              <h6 class="ml-5">{{ file }}</h6>
                             </td>
                             <td>
                               <h6 class="text-muted">
@@ -76,6 +79,7 @@
                               >
                             </td>
                           </tr>
+                          {% endfor %}
                         </tbody>
                       </table>
                     </div>
@@ -83,7 +87,21 @@
                 </div>
               </div>
               <!--[ Recently Opened ] end-->
+
+              <!--[ Class Statistics ] start-->
+              <div class="col-xl-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>Class Statistics</h5>
+                  </div>
+                  <div class="card-block">
+                    <div id="morris-bar-chart" style="height: 300px"></div>
+                  </div>
+                </div>
+              </div>
             </div>
+            <!--[ Class Statistics ] end-->
+
             <!-- [ Main Content ] end -->
           </div>
         </div>
@@ -96,4 +114,10 @@
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+
+<script src="{{ config.ASSETS_ROOT }}/plugins/chart-morris/js/raphael.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/plugins/chart-morris/js/morris.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/pages/chart-morris-custom.js"></script>
+
+{% endblock javascripts %}
