@@ -1,32 +1,41 @@
 <!-- [ navigation menu ] start -->
 <nav class="pcoded-navbar">
-    <div class="navbar-wrapper">
-        <div class="navbar-brand header-logo">
-            <a href="/" class="b-brand">
-                <div class="b-bg">
-                    <i class="feather icon-trending-up"></i>
-                </div>
-                <span class="b-title">DTAP</span>
-            </a>
-            <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+  <div class="navbar-wrapper">
+    <div class="navbar-brand header-logo">
+      <a href="/" class="b-brand">
+        <div class="b-bg">
+          <i class="feather icon-trending-up"></i>
         </div>
-        <div class="navbar-content scroll-div">
-            <ul class="nav pcoded-inner-navbar">
-                <li class="nav-item pcoded-menu-caption">
-                    <label>Navigation</label>
-                </li>
-                <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
-                    class="nav-item {% if 'index' in segment %} active {% endif %}">
-                    <a href="/" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
-                            class="pcoded-mtext">Dashboard</span></a>
-                </li>
-                <li data-username="Profile Page" 
-                    class="nav-item {% if 'profile' in segment %} active {% endif %}">
-                    <a href="/profile.html" class="nav-link">
-                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
-                            <span class="pcoded-mtext">Profile Page</span></a>
-                </li>                
-                <li class="nav-item pcoded-menu-caption">
+        <span class="b-title">DTAP</span>
+      </a>
+      <a class="mobile-menu" id="mobile-collapse" href="javascript:"
+        ><span></span
+      ></a>
+    </div>
+    <div class="navbar-content scroll-div">
+      <ul class="nav pcoded-inner-navbar">
+        <li class="nav-item pcoded-menu-caption">
+          <label>Navigation</label>
+        </li>
+        <li
+          data-username="dashboard Default Ecommerce CRM Analytics Crypto Project"
+          class="nav-item {% if 'index' in segment %} active {% endif %}"
+        >
+          <a href="/" class="nav-link"
+            ><span class="pcoded-micon"><i class="feather icon-home"></i></span
+            ><span class="pcoded-mtext">Dashboard</span></a
+          >
+        </li>
+        <li
+          data-username="Profile Page"
+          class="nav-item {% if 'profile' in segment %} active {% endif %}"
+        >
+          <a href="/profile.html" class="nav-link">
+            <span class="pcoded-micon"><i class="feather icon-user"></i></span>
+            <span class="pcoded-mtext">Profile Page</span></a
+          >
+        </li>
+        <!-- <li class="nav-item pcoded-menu-caption">
                     <label>UI Element</label>
                 </li>
                 <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds"
@@ -89,12 +98,6 @@
                 <li data-username="Sample Page" class="nav-item"><a href="/page-blank.html" class="nav-link"><span
                         class="pcoded-micon"><i class="feather icon-sidebar"></i></span><span class="pcoded-mtext">Sample page</span></a>
                 </li>
-
-                <li data-username="Disabled Menu" class="nav-item">
-                    <a href="{{ url_for('authentication_blueprint.logout') }}" class="nav-link">
-                        <span class="pcoded-micon"><i class="feather icon-power"></i></span><span class="pcoded-mtext">Logout</span>
-                    </a>
-                </li>
                 <li class="nav-item pcoded-menu-caption">
                     <label>More Resources</label>
                 </li>                    
@@ -105,9 +108,18 @@
                         </span>
                         <span class="pcoded-mtext">Support</span>
                     </a>
-                </li>                
-            </ul>
-        </div>
+                </li>                 -->
+        <li data-username="Disabled Menu" class="nav-item">
+          <a
+            href="{{ url_for('authentication_blueprint.logout') }}"
+            class="nav-link"
+          >
+            <span class="pcoded-micon"><i class="feather icon-power"></i></span
+            ><span class="pcoded-mtext">Logout</span>
+          </a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 <!-- [ navigation menu ] end -->

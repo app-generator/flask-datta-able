@@ -13,11 +13,19 @@ from flask_login import login_required
 from jinja2 import TemplateNotFound
 
 
+def powerpoint(file_path):
+    powerpoint_path = "C:/Program Files/Microsoft Office/root/Office16/POWERPNT.EXE"
+    # subprocess.Popen([powerpoint_path, "C:/Users/Asus/Desktop/python/app/test.pptx"])
+    subprocess.Popen([powerpoint_path, file_path])
+    pyautogui.sleep(2)
+    pyautogui.press("f5")
+
+
 @blueprint.route("/index")
 @login_required
 def index():
     files = display_file()
-    return render_template("home/index.html", segment="index",files=files)
+    return render_template("home/index.html", segment="index", files=files)
 
 
 @blueprint.route("/<template>")
@@ -40,18 +48,22 @@ def route_template(template):
         return render_template("home/page-500.html"), 500
 
 
+@blueprint.route("/reopen_presentation", methods=["POST"])
+def reopen_slideshow():
+    # file_path = "files" + 
+    powerpoint(file_path)  
+    files = display_file()
+    return render_template("home/index.html", segment="index", files=files)
+
+
 @blueprint.route("/open_presentation", methods=["POST"])
 def open_slideshow():
-    powerpoint_path = "C:/Program Files/Microsoft Office/root/Office16/POWERPNT.EXE"
     file = request.files["file_path"]
     if file:
         file.save(f"./files/{file.filename}")
         try:
-            file_path = "./files/"+file.filename
-            # subprocess.Popen([powerpoint_path, "C:/Users/Asus/Desktop/python/app/test.pptx"])
-            subprocess.Popen([powerpoint_path, file_path])
-            pyautogui.sleep(2)
-            pyautogui.press("f5")
+            file_path = "./files/" + file.filename
+            powerpoint(file_path)
             files = display_file()
             return render_template("home/index.html", segment="index", files=files)
 
@@ -60,11 +72,14 @@ def open_slideshow():
     else:
         return "no file selected"
 
+
 @blueprint.route("/display_filenames")
 def display_file():
     files = os.listdir("files")
-    return files
-
+    # return files
+    # logdir='' # path to your log directory
+    logfiles = sorted([f for f in files])
+    return logfiles
 
 
 # Helper - Extract current page name from request

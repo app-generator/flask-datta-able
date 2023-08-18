@@ -55,28 +55,28 @@
                       <table class="table table-hover">
                         <tbody>
                           {% for file in files %}
-                          <tr class="unread">
+                          <tr class="unread" id={{file}}>
                             <td>
                               <h6 class="ml-5">{{ file }}</h6>
                             </td>
-                            <td>
+                            <!-- <td>
                               <h6 class="text-muted">
                                 <i
                                   class="fas fa-circle text-c-green f-10 m-r-15"
                                 ></i
                                 >Time ppt was closed
                               </h6>
-                            </td>
+                            </td> -->
                             <td>
-                              <a
-                                href="#!"
-                                class="label theme-bg2 text-white f-12"
+                              <a href="" class="label theme-bg2 text-white f-12"
                                 >Delete</a
-                              ><a
-                                href="#!"
-                                class="label theme-bg text-white f-12"
-                                >Reopen</a
                               >
+                              <input
+                                type="button"
+                                class="label theme-bg text-white f-12"
+                                onclick="reopen(id)"
+                                value="Reopen"
+                              />
                             </td>
                           </tr>
                           {% endfor %}
@@ -111,6 +111,12 @@
 </div>
 <!-- [ Main Content ] end -->
 
+>
+<!-- <script>
+  function reopen() {
+    document.getElementById(id)
+  }
+</script> -->
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
