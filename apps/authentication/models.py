@@ -9,9 +9,10 @@ from sqlalchemy.orm import relationship
 from flask_dance.consumer.storage.sqla import OAuthConsumerMixin
 
 from apps import db, login_manager
-
+import secrets
 from apps.authentication.util import hash_pass
-
+def generate_new_session_id():
+        return secrets.token_hex(16)
 class Users(db.Model, UserMixin):
 
     __tablename__ = 'users'
@@ -20,10 +21,10 @@ class Users(db.Model, UserMixin):
     username      = db.Column(db.String(64), unique=True)
     email         = db.Column(db.String(64), unique=True)
     password      = db.Column(db.LargeBinary)
-
+    session_id = db.Column(db.String(80), unique=True,index=True)
     oauth_github  = db.Column(db.String(100), nullable=True)
 
-    def __init__(self, **kwargs):
+    def __init__(self, session_id,**kwargs):
         for property, value in kwargs.items():
             # depending on whether value is an iterable or not, we must
             # unpack it's value (when **kwargs is request.form, some values
@@ -36,7 +37,16 @@ class Users(db.Model, UserMixin):
                 value = hash_pass(value)  # we need bytes here (not plain str)
 
             setattr(self, property, value)
-
+        self.session_id=session_id
+    def update_session_id(self, session_id):
+      
+            existing_user = Users.query.filter_by(session_id=session_id).first()
+            if existing_user:
+                new_session_id = generate_new_session_id()
+                self.update_session_id(new_session_id)
+            else:
+                self.session_id = session_id
+                db.session.commit()
     def __repr__(self):
         return str(self.username)
 
