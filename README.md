@@ -205,7 +205,7 @@ The project is coded using blueprints, app factory pattern, dual configuration p
 
 <br />
 
-## [PRO Version](https://appseed.us/product/datta-able-pro/flask/)
+## ✅ [PRO Version](https://appseed.us/product/datta-able-pro/flask/)
 
 > For more components, pages and priority on support, feel free to take a look at this amazing starter:
 
