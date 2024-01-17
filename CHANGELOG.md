@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.15] 2023-10-08
+### Changes
+
+- Docs Update (readme)
+- Added infos for [Flask Datta PRO](https://appseed.us/product/datta-able-pro/flask/)
+
 ## [1.0.14] 2023-10-08
 ### Changes
 
