@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.16] 2023-02-14
+### Changes
+
+- Update [Custom Development](https://appseed.us/custom-development/) Section
+- Minor Changes (readme)
+
 ## [1.0.15] 2023-10-08
 ### Changes
 
