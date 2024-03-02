@@ -11,7 +11,7 @@ Open-source **[Flask Dashboard](https://appseed.us/admin-dashboards/flask/)** ge
 
 > `Have questions?` Contact **[Support](https://appseed.us/support/)** (Email & Discord) provided by **AppSeed**
 
-| Free Version                          | [PRO Version](https://appseed.us/product/datta-able-pro/flask/)          | 🚀 Custom - $4,999         |  
+| Free Version                          | [PRO Version](https://appseed.us/product/datta-able-pro/flask/)          | [Custom Development](https://appseed.us/custom-development/) |  
 | --------------------------------------| --------------------------------------| --------------------------------------|
 | ✓ **Up-to-date dependencies**             | **Everything in Free**, plus:                                        | **Everything in PRO**, plus:       |
 | ✓ Best Practices                          | ✅ **Premium Bootstrap 5 Design**                                    | ✅ **1mo Custom Development**     | 
