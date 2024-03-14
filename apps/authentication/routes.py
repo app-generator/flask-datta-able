@@ -17,7 +17,9 @@ from apps.authentication.forms import LoginForm, CreateAccountForm
 from apps.authentication.models import Users
 
 from apps.authentication.util import verify_pass
-
+import secrets
+def generate_new_session_id():
+        return secrets.token_hex(16)
 @blueprint.route('/')
 def route_default():
     return redirect(url_for('authentication_blueprint.login'))
@@ -90,24 +92,26 @@ def register():
 
         # Check email exists
         user = Users.query.filter_by(email=email).first()
+        
         if user:
             return render_template('accounts/register.html',
                                    msg='Email already registered',
                                    success=False,
                                    form=create_account_form)
-
+        session_id = generate_new_session_id()
         # else we can create the user
-        user = Users(**request.form)
+        user = Users(session_id=session_id,**request.form)
         db.session.add(user)
         db.session.commit()
-
+        # session['sid'] = user.session_id
         # Delete user from session
         logout_user()
 
         return render_template('accounts/register.html',
                                msg='User created successfully.',
                                success=True,
-                               form=create_account_form)
+                               form=create_account_form,
+                               session_id=session_id)
 
     else:
         return render_template('accounts/register.html', form=create_account_form)

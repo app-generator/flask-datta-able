@@ -6,10 +6,11 @@ Copyright (c) 2019 - present AppSeed.us
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField
 from wtforms.validators import Email, DataRequired
-
+import secrets
 # login and registration
 
-
+def generate_new_session_id():
+        return secrets.token_hex(16)
 class LoginForm(FlaskForm):
     username = StringField('Username',
                          id='username_login',
@@ -29,3 +30,4 @@ class CreateAccountForm(FlaskForm):
     password = PasswordField('Password',
                              id='pwd_create',
                              validators=[DataRequired()])
+    
