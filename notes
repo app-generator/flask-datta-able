@@ -1,0 +1,15 @@
+Install Nginx: If you don't have Nginx installed, you can install it using the following command:
+
+sudo apt-get install nginx
+
+sudo ln -s /etc/nginx/sites-available/appseed-app.conf /etc/nginx/sites-enabled/
+
+sudo cp path/to/appseed-app.conf /etc/nginx/sites-available/
+sudo ln -s /etc/nginx/sites-available/appseed-app.conf /etc/nginx/sites-enabled/
+
+
+sudo nginx -t
+
+sudo systemctl restart nginx
+
+flask run --host=0.0.0.0 --port=5005
