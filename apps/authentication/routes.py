@@ -33,31 +33,39 @@ def login_github():
     res = github.get("/user")
     return redirect(url_for('home_blueprint.index'))
 
+
+from flask import render_template, request, redirect, url_for, flash, session
+from flask_login import login_user, current_user
+from werkzeug.security import check_password_hash
+from apps.authentication import blueprint
+from apps.authentication.models import User, Users
+from apps.authentication.forms import LoginForm
+from apps import db
+
+
 @blueprint.route('/login', methods=['GET', 'POST'])
 def login():
     login_form = LoginForm(request.form)
-    if 'login' in request.form:
+    msg = None
 
-        # read form data
-        user_id  = request.form['username'] # we can have here username OR email
+    if 'login' in request.form:
+        # Read form data
+        user_id = request.form['username']  # We can have here username OR email
         password = request.form['password']
 
         # Locate user
         user = Users.find_by_username(user_id)
 
-        # if user not found
+        # If user not found
         if not user:
-
             user = Users.find_by_email(user_id)
-
             if not user:
-                return render_template( 'accounts/login.html',
-                                        msg='Unknown User or Email',
-                                        form=login_form)
+                return render_template('accounts/login.html',
+                                       msg='Unknown User or Email',
+                                       form=login_form)
 
         # Check the password
         if verify_pass(password, user.password):
-
             login_user(user)
             return redirect(url_for('authentication_blueprint.route_default'))
 
@@ -66,12 +74,34 @@ def login():
                                msg='Wrong user or password',
                                form=login_form)
 
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        user = User.query.filter_by(username=username).first()
+
+        if user and check_password_hash(user.password, password):
+            session['user_id'] = user.id
+            flash('Login successful!', 'success')
+            return redirect(url_for('authentication_blueprint.dashboard'))
+        else:
+            msg = 'Invalid credentials. Please try again.'
+
     if not current_user.is_authenticated:
         return render_template('accounts/login.html',
-                               form=login_form)
+                               form=login_form, msg=msg)
     return redirect(url_for('home_blueprint.index'))
 
 
+@blueprint.route('/dashboard')
+def dashboard():
+    if 'user_id' not in session:
+        return redirect(url_for('authentication_blueprint.login'))
+    return 'Welcome to the dashboard!'
+@blueprint.route('/dashboard')
+def dashboard():
+    if 'user_id' not in session:
+        return redirect(url_for('authentication_blueprint.login'))
 @blueprint.route('/register', methods=['GET', 'POST'])
 def register():
     create_account_form = CreateAccountForm(request.form)
