@@ -1,5 +1,35 @@
 # Change Log
 
+## [1.0.18] 2024-05-18
+### Changes
+
+- Updated DOCS (readme)
+  - [Custom Development](https://appseed.us/custom-development/) Section
+  - [CI/CD Assistance for AWS, DO](https://appseed.us/terms/#section-ci-cd)
+
+## [1.0.17] 2024-03-05
+### Changes
+
+- Update [Custom Development](https://appseed.us/custom-development/) Section
+  - New Pricing: `$3,999`
+
+## [1.0.16] 2023-02-14
+### Changes
+
+- Update [Custom Development](https://appseed.us/custom-development/) Section
+- Minor Changes (readme)
+
+## [1.0.15] 2023-10-08
+### Changes
+
+- Docs Update (readme)
+- Added infos for [Flask Datta PRO](https://appseed.us/product/datta-able-pro/flask/)
+
+## [1.0.14] 2023-10-08
+### Changes
+
+- Update Dependencies
+
 ## [1.0.13] 2023-01-02
 ### Changes
 
