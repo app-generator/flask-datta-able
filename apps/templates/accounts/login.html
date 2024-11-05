@@ -28,16 +28,14 @@
                     <br />
                     <br />
 
-                    <form role="form" method="post" action="">
-
-                        {{ form.hidden_tag() }}                    
+                    <form role="form" method="post" action="{{ url_for('authentication_blueprint.login') }}">
 
                         <div class="input-group mb-3">
-                            {{ form.username(placeholder="Username or eMail", class="form-control") }}
+                            <input type="text" name="username" placeholder="Username or eMail" class="form-control" required>
                         </div>
                         
                         <div class="input-group mb-4">
-                            {{ form.password(placeholder="Password", class="form-control", type="password") }}
+                            <input type="password" name="password" placeholder="Password" class="form-control" required>
                         </div>
                         
                         <button type="submit" name="login" class="btn btn-primary shadow-2 mb-4">Login</button>

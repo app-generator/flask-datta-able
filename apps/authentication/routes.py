@@ -1,28 +1,26 @@
 # -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
-
-from flask import render_template, redirect, request, url_for
+from flask import render_template, redirect, request, url_for, flash, session
 from flask_login import (
     current_user,
     login_user,
     logout_user
 )
 from flask_dance.contrib.github import github
+from werkzeug.security import check_password_hash, generate_password_hash
 
 from apps import db, login_manager
 from apps.authentication import blueprint
 from apps.authentication.forms import LoginForm, CreateAccountForm
-from apps.authentication.models import Users
-
+from apps.authentication.models import User, Users
 from apps.authentication.util import verify_pass
+
 
 @blueprint.route('/')
 def route_default():
     return redirect(url_for('authentication_blueprint.login'))
 
 # Login & Registration
+
 
 @blueprint.route("/github")
 def login_github():
@@ -33,31 +31,30 @@ def login_github():
     res = github.get("/user")
     return redirect(url_for('home_blueprint.index'))
 
+
 @blueprint.route('/login', methods=['GET', 'POST'])
 def login():
     login_form = LoginForm(request.form)
-    if 'login' in request.form:
+    msg = None
 
-        # read form data
-        user_id  = request.form['username'] # we can have here username OR email
+    if 'login' in request.form:
+        # Read form data
+        user_id = request.form['username']  # We can have here username OR email
         password = request.form['password']
 
         # Locate user
         user = Users.find_by_username(user_id)
 
-        # if user not found
+        # If user not found
         if not user:
-
             user = Users.find_by_email(user_id)
-
             if not user:
-                return render_template( 'accounts/login.html',
-                                        msg='Unknown User or Email',
-                                        form=login_form)
+                return render_template('accounts/login.html',
+                                       msg='Unknown User or Email',
+                                       form=login_form)
 
         # Check the password
         if verify_pass(password, user.password):
-
             login_user(user)
             return redirect(url_for('authentication_blueprint.route_default'))
 
@@ -66,10 +63,30 @@ def login():
                                msg='Wrong user or password',
                                form=login_form)
 
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        user = User.query.filter_by(username=username).first()
+
+        if user and check_password_hash(user.password, password):
+            session['user_id'] = user.id
+            flash('Login successful!', 'success')
+            return redirect(url_for('authentication_blueprint.dashboard'))
+        else:
+            msg = 'Invalid credentials. Please try again.'
+
     if not current_user.is_authenticated:
         return render_template('accounts/login.html',
-                               form=login_form)
+                               form=login_form, msg=msg)
     return redirect(url_for('home_blueprint.index'))
+
+
+@blueprint.route('/dashboard')
+def dashboard():
+    if 'user_id' not in session:
+        return redirect(url_for('authentication_blueprint.login'))
+    return 'Welcome to the dashboard!'
 
 
 @blueprint.route('/register', methods=['GET', 'POST'])
@@ -80,7 +97,7 @@ def register():
         username = request.form['username']
         email = request.form['email']
 
-        # Check usename exists
+        # Check username exists
         user = Users.query.filter_by(username=username).first()
         if user:
             return render_template('accounts/register.html',
@@ -116,9 +133,10 @@ def register():
 @blueprint.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('authentication_blueprint.login')) 
+    return redirect(url_for('authentication_blueprint.login'))
 
 # Errors
+
 
 @login_manager.unauthorized_handler
 def unauthorized_handler():
