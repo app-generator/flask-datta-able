@@ -1,28 +1,26 @@
 # -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
-
-from flask import render_template, redirect, request, url_for
+from flask import render_template, redirect, request, url_for, flash, session
 from flask_login import (
     current_user,
     login_user,
     logout_user
 )
 from flask_dance.contrib.github import github
+from werkzeug.security import check_password_hash, generate_password_hash
 
 from apps import db, login_manager
 from apps.authentication import blueprint
 from apps.authentication.forms import LoginForm, CreateAccountForm
-from apps.authentication.models import Users
-
+from apps.authentication.models import User, Users
 from apps.authentication.util import verify_pass
+
 
 @blueprint.route('/')
 def route_default():
     return redirect(url_for('authentication_blueprint.login'))
 
 # Login & Registration
+
 
 @blueprint.route("/github")
 def login_github():
@@ -32,15 +30,6 @@ def login_github():
 
     res = github.get("/user")
     return redirect(url_for('home_blueprint.index'))
-
-
-from flask import render_template, request, redirect, url_for, flash, session
-from flask_login import login_user, current_user
-from werkzeug.security import check_password_hash
-from apps.authentication import blueprint
-from apps.authentication.models import User, Users
-from apps.authentication.forms import LoginForm
-from apps import db
 
 
 @blueprint.route('/login', methods=['GET', 'POST'])
@@ -98,10 +87,8 @@ def dashboard():
     if 'user_id' not in session:
         return redirect(url_for('authentication_blueprint.login'))
     return 'Welcome to the dashboard!'
-@blueprint.route('/dashboard')
-def dashboard():
-    if 'user_id' not in session:
-        return redirect(url_for('authentication_blueprint.login'))
+
+
 @blueprint.route('/register', methods=['GET', 'POST'])
 def register():
     create_account_form = CreateAccountForm(request.form)
@@ -110,7 +97,7 @@ def register():
         username = request.form['username']
         email = request.form['email']
 
-        # Check usename exists
+        # Check username exists
         user = Users.query.filter_by(username=username).first()
         if user:
             return render_template('accounts/register.html',
@@ -146,9 +133,10 @@ def register():
 @blueprint.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('authentication_blueprint.login')) 
+    return redirect(url_for('authentication_blueprint.login'))
 
 # Errors
+
 
 @login_manager.unauthorized_handler
 def unauthorized_handler():
