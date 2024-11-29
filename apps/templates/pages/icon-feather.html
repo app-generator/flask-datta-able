@@ -1,5 +1,4 @@
 {% extends "layouts/base.html" %}
-{% load static %}
 
 {% block title %}Icon Feather{% endblock title %}
 
@@ -19,7 +18,7 @@
               </div>
               <div class="col-md-12">
                 <ul class="breadcrumb mb-0">
-                  <li class="breadcrumb-item"><a href="{% url "index" %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="{{ url_for('home_blueprint.index') }}">Home</a></li>
                   <li class="breadcrumb-item"><a href="javascript: void(0)">Icons</a></li>
                   <li class="breadcrumb-item" aria-current="page">Feather Icon</li>
                 </ul>
@@ -60,7 +59,7 @@
  
 
     <!-- [Page Specific JS] start -->
-    <script src="{% static "assets/js/plugins/clipboard.min.js" %}"></script>
+    <script src="{{ url_for('static', filename='assets/js/plugins/clipboard.min.js') }}"></script>
     <script>
       var icon_list = [
         'alert-octagon',

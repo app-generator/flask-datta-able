@@ -1,5 +1,4 @@
 {% extends "layouts/base.html" %}
-{% load static %}
 
 {% block content %}
 
@@ -17,7 +16,7 @@
             </div>
             <div class="col-md-12">
               <ul class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a href="{% url "index" %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('home_blueprint.index') }}">Home</a></li>
                 <li class="breadcrumb-item"><a href="javascript: void(0)">Other</a></li>
                 <li class="breadcrumb-item" aria-current="page">Sample Page</li>
               </ul>

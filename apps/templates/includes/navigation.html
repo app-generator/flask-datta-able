@@ -1,6 +1,3 @@
-{% load static %}
-
-
 <header class="pc-header">
     <div class="header-wrapper"> <!-- [Mobile Media Block] start -->
       <div class="me-auto pc-mob-drp">
@@ -61,7 +58,7 @@
                   <div class="card-body">
                     <div class="d-flex">
                       <div class="flex-shrink-0">
-                        <img class="img-radius avtar rounded-0" src="{% static "assets/images/user/avatar-1.jpg" %}" alt="Generic placeholder image">
+                        <img class="img-radius avtar rounded-0" src="{{ url_for('static', filename='assets/images/user/avatar-1.jpg') }}" alt="Generic placeholder image">
                       </div>
                       <div class="flex-grow-1 ms-3">
                         <span class="float-end text-sm text-muted">2 min ago</span>
@@ -78,7 +75,7 @@
                   <div class="card-body">
                     <div class="d-flex">
                       <div class="flex-shrink-0">
-                        <img class="img-radius avtar rounded-0" src="{% static "assets/images/user/avatar-2.jpg" %}" alt="Generic placeholder image">
+                        <img class="img-radius avtar rounded-0" src="{{ url_for('static', filename='assets/images/user/avatar-2.jpg') }}" alt="Generic placeholder image">
                       </div>
                       <div class="flex-grow-1 ms-3">
                         <span class="float-end text-sm text-muted">1 hour ago</span>
@@ -93,7 +90,7 @@
                   <div class="card-body">
                     <div class="d-flex">
                       <div class="flex-shrink-0">
-                        <img class="img-radius avtar rounded-0" src="{% static "assets/images/user/avatar-3.jpg" %}" alt="Generic placeholder image">
+                        <img class="img-radius avtar rounded-0" src="{{ url_for('static', filename='assets/images/user/avatar-3.jpg') }}" alt="Generic placeholder image">
                       </div>
                       <div class="flex-grow-1 ms-3">
                         <span class="float-end text-sm text-muted">2 hour ago</span>
@@ -110,7 +107,7 @@
                   <div class="card-body">
                     <div class="d-flex">
                       <div class="flex-shrink-0">
-                        <img class="img-radius avtar rounded-0" src="{% static "assets/images/user/avatar-4.jpg" %}" alt="Generic placeholder image">
+                        <img class="img-radius avtar rounded-0" src="{{ url_for('static', filename='assets/images/user/avatar-4.jpg') }}" alt="Generic placeholder image">
                       </div>
                       <div class="flex-grow-1 ms-3">
                         <span class="float-end text-sm text-muted">12 hour ago</span>
@@ -126,7 +123,7 @@
                   <div class="card-body">
                     <div class="d-flex">
                       <div class="flex-shrink-0">
-                        <img class="img-radius avtar rounded-0" src="{% static "assets/images/user/avatar-5.jpg" %}" alt="Generic placeholder image">
+                        <img class="img-radius avtar rounded-0" src="{{ url_for('static', filename='assets/images/user/avatar-5.jpg') }}" alt="Generic placeholder image">
                       </div>
                       <div class="flex-grow-1 ms-3">
                         <span class="float-end text-sm text-muted">5 hour ago</span>
@@ -161,7 +158,7 @@
               <div class="dropdown-header d-flex align-items-center justify-content-between bg-primary">
                 <div class="d-flex my-2">
                   <div class="flex-shrink-0">
-                    <img src="{% static "assets/images/user/avatar-2.jpg" %}" alt="user-image" class="user-avtar wid-35" />
+                    <img src="{{ url_for('static', filename='assets/images/user/avatar-2.jpg') }}" alt="user-image" class="user-avtar wid-35" />
                   </div>
                   <div class="flex-grow-1 ms-3">
                     <h6 class="text-white mb-1">Carson Darrin 🖖</h6>
@@ -196,14 +193,14 @@
                     </span>
                   </a>
                   <div class="d-grid my-2">
-                    {% if request.user.is_authenticated %}
-                    <a href="{% url "logout" %}" class="btn btn-primary">
+                    {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('authentication_blueprint.logout') }}" class="btn btn-primary">
                       <svg class="pc-icon me-2">
                         <use xlink:href="#custom-logout-1-outline"></use></svg
                       >Logout
                     </a>
                     {% else %}
-                    <a href="{% url "login" %}" class="btn btn-primary">
+                    <a href="{{ url_for('authentication_blueprint.login') }}" class="btn btn-primary">
                       <svg class="pc-icon me-2">
                         <use xlink:href="#custom-logout-1-outline"></use>
                       </svg>Login

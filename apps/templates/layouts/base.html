@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-{% load i18n static admin_datta %}
-{% get_current_language as LANGUAGE_CODE %}
-{% get_current_language_bidi as LANGUAGE_BIDI %}
-{% get_direction as direction %}
-{% get_admin_setting as admin_setting %}
 <html lang="en">
   <head>
     
@@ -13,7 +8,6 @@
 
     {% include "includes/head.html" %}
     {% block extrastyle %}{% endblock extrastyle %}
-    {% block extrahead %}{% endblock extrahead %}
 
   </head>
 

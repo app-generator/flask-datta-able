@@ -1,5 +1,4 @@
 {% extends "layouts/base.html" %}
-{% load static %}
 
 {% block title %}Home{% endblock title %}
 
@@ -18,7 +17,7 @@
             </div>
             <div class="col-md-12">
               <ul class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a href="{% url "index" %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('home_blueprint.index') }}">Home</a></li>
                 <li class="breadcrumb-item"><a href="javascript: void(0)">Dashboard</a></li>
                 <li class="breadcrumb-item" aria-current="page">Home</li>
               </ul>
@@ -311,7 +310,7 @@
                         <table class="table table-hover">
                             <tbody>
                                 <tr class="unread">
-                                    <td><img class="rounded-circle" style="width:40px;" src="{% static "assets/images/user/avatar-1.jpg" %}" alt="activity-user"></td>
+                                    <td><img class="rounded-circle" style="width:40px;" src="{{ url_for('static', filename='assets/images/user/avatar-1.jpg') }}" alt="activity-user"></td>
                                     <td>
                                         <h6 class="mb-1">Isabella Christensen</h6>
                                         <p class="m-0">Lorem Ipsum is simply dummy</p>
@@ -322,7 +321,7 @@
                                     <td><a href="#!" class="badge me-2 bg-brand-color-2 text-white f-12">Reject</a><a href="#!" class="badge me-2 bg-brand-color-1 text-white f-12">Approve</a></td>
                                 </tr>
                                 <tr class="unread">
-                                    <td><img class="rounded-circle" style="width:40px;" src="{% static "assets/images/user/avatar-2.jpg" %}" alt="activity-user"></td>
+                                    <td><img class="rounded-circle" style="width:40px;" src="{{ url_for('static', filename='assets/images/user/avatar-2.jpg') }}" alt="activity-user"></td>
                                     <td>
                                         <h6 class="mb-1">Mathilde Andersen</h6>
                                         <p class="m-0">Lorem Ipsum is simply</p>
@@ -333,7 +332,7 @@
                                     <td><a href="#!" class="badge me-2 bg-brand-color-2 text-white f-12">Reject</a><a href="#!" class="badge me-2 bg-brand-color-1 text-white f-12">Approve</a></td>
                                 </tr>
                                 <tr class="unread">
-                                    <td><img class="rounded-circle" style="width:40px;" src="{% static "assets/images/user/avatar-3.jpg" %}" alt="activity-user"></td>
+                                    <td><img class="rounded-circle" style="width:40px;" src="{{ url_for('static', filename='assets/images/user/avatar-3.jpg') }}" alt="activity-user"></td>
                                     <td>
                                         <h6 class="mb-1">Karla Sorensen</h6>
                                         <p class="m-0">Lorem Ipsum is simply dummy</p>
@@ -344,7 +343,7 @@
                                     <td><a href="#!" class="badge me-2 bg-brand-color-2 text-white f-12">Reject</a><a href="#!" class="badge me-2 bg-brand-color-1 text-white f-12">Approve</a></td>
                                 </tr>
                                 <tr class="unread">
-                                    <td><img class="rounded-circle" style="width:40px;" src="{% static "assets/images/user/avatar-1.jpg" %}" alt="activity-user"></td>
+                                    <td><img class="rounded-circle" style="width:40px;" src="{{ url_for('static', filename='assets/images/user/avatar-1.jpg') }}" alt="activity-user"></td>
                                     <td>
                                         <h6 class="mb-1">Ida Jorgensen</h6>
                                         <p class="m-0">Lorem Ipsum is simply</p>
@@ -355,7 +354,7 @@
                                     <td><a href="#!" class="badge me-2 bg-brand-color-2 text-white f-12">Reject</a><a href="#!" class="badge me-2 bg-brand-color-1 text-white f-12">Approve</a></td>
                                 </tr>
                                 <tr class="unread">
-                                    <td><img class="rounded-circle" style="width:40px;" src="{% static "assets/images/user/avatar-2.jpg" %}" alt="activity-user"></td>
+                                    <td><img class="rounded-circle" style="width:40px;" src="{{ url_for('static', filename='assets/images/user/avatar-2.jpg') }}" alt="activity-user"></td>
                                     <td>
                                         <h6 class="mb-1">Albert Andersen</h6>
                                         <p class="m-0">Lorem Ipsum is</p>
@@ -381,9 +380,9 @@
 
 {% block extra_js %}
 
-<script src="{% static "assets/js/plugins/apexcharts.min.js" %}"></script>
-<script src="{% static "assets/js/plugins/jsvectormap.min.js" %}"></script>
-<script src="{% static "assets/js/plugins/world.js" %}"></script>
-<script src="{% static "assets/js/pages/dashboard-default.js" %}"></script>
+<script src="{{ url_for('static', filename='assets/js/plugins/apexcharts.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/plugins/jsvectormap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/plugins/world.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/pages/dashboard-default.js') }}"></script>
 
 {% endblock extra_js %}
