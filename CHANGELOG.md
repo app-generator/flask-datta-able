@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.0.19] 2024-1-29
+### Changes
+
+- Bump UI Version
+- Codebase Improvements
+- Update RM Links:
+
+
+
 ## [1.0.18] 2024-05-18
 ### Changes
 

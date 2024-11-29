@@ -15,9 +15,15 @@
             <span class="r"></span>
           </div>
           <div class="card mb-0">
+            
             {% if success %}
+            <div class="text-center">
+              <span class="d-block text-primary mt-4 mb-2">{{ msg | safe }}</span>
+              <br />
               <a href="{{ url_for('authentication_blueprint.login') }}" class="btn btn-primary shadow-2 mb-4">Sign IN</a>
+            </div>              
             {% else %}
+           
             <form method="post" class="card-body">
               {{ form.hidden_tag() }}
               
@@ -30,7 +36,12 @@
               </div>
               <h4 class="text-center f-w-500 mt-4 mb-3">Sign up</h4>
 
-
+              {% if msg %}
+              <div class="text-center">
+                <span class="d-block text-danger mb-3">{{ msg | safe }}</span>
+              </div>  
+              {% endif %}  
+              
               <div class="form-group mb-3">
                 {{ form.username(placeholder="Username", class="form-control") }}
               </div>
@@ -50,8 +61,7 @@
               <div class="text-center mt-4">
                 <button type="submit" name="register" class="btn btn-primary shadow px-sm-4">Sign up</button>
               </div>
-              <div class="d-flex justify-content-between align-items-end mt-4">
-                <h6 class="f-w-500 mb-0">Already have an Account?</h6>
+              <div class="d-flex justify-content-center align-items-end mt-4">
                 <a href="{{ url_for('authentication_blueprint.login') }}" class="link-primary">Login</a>
               </div>
             </form>
