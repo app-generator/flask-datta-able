@@ -1,65 +1,63 @@
-{% extends "layouts/base-fullscreen.html" %}
+{% extends "layouts/base-auth.html" %}
+{% load static %}
 
-{% block title %} Login {% endblock %}
+{% block title %}Login{% endblock title %}
 
-{% block content %}   
+{% block content %}
 
-    <div class="auth-wrapper">
-        <div class="auth-content">
-            <div class="auth-bg">
-                <span class="r"></span>
-                <span class="r s"></span>
-                <span class="r s"></span>
-                <span class="r"></span>
-            </div>
-            <div class="card">
-                <div class="card-body text-center">
+  <div class="auth-main">
+    <div class="auth-wrapper v1">
+      <div class="auth-form">
+        <div class="position-relative my-5">
+          <div class="auth-bg">
+            <span class="r"></span>
+            <span class="r s"></span>
+            <span class="r s"></span>
+            <span class="r"></span>
+          </div>
+          <div class="card mb-0">
+            <form method="post" class="card-body">
+              {% csrf_token %}
 
-                    <h3 class="mb-4">Login</h3>
+              <div class="text-center">
+                <a href="{% url "index" %}">
+                  <div>
+                    <img src="{% static "assets/images/logo-dark.svg" %}" alt="img">
+                  </div>
+                </a>
+              </div>
+              <h4 class="text-center f-w-500 mt-4 mb-3">Login</h4>
 
-                    <span class="mb-0 text-muted">
-                        {% if msg %}
-                            <span class="text-danger">{{ msg | safe }}</span>
-                        {% else %}
-                            Add your credentials
-                        {% endif %} 
-                    </span>
+              {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                  <span class="d-block text-danger mb-3">{{ error }}</span>
+                {% endfor %}
+              {% endif %}
 
-                    <br />
-                    <br />
-
-                    <form role="form" method="post" action="">
-
-                        {{ form.hidden_tag() }}                    
-
-                        <div class="input-group mb-3">
-                            {{ form.username(placeholder="Username or eMail", class="form-control") }}
-                        </div>
-                        
-                        <div class="input-group mb-4">
-                            {{ form.password(placeholder="Password", class="form-control", type="password") }}
-                        </div>
-                        
-                        <button type="submit" name="login" class="btn btn-primary shadow-2 mb-4">Login</button>
-
-                    </form>
-
-                    <p class="mb-0 text-muted">Don’t have an account? <a href="{{ url_for('authentication_blueprint.register') }}" >Sign UP</a></p>
-                    
-                    {% if config.SOCIAL_AUTH_GITHUB %}
-                        <div class="mx-2">
-
-                            <a href="{{url_for('authentication_blueprint.login_github')}}" class="btn">
-                                <i class="feather icon-github auth-icon"></i>
-                                
-                            </a>
-                            <br />
-                            <span class="mx-2">Sign IN with GitHub</span>
-                        </div>
-                    {% endif %}
+              {% for field in form %}
+              <div class="form-group mb-3">
+                {{ field }}
+              </div>
+              {% endfor %}
+              <div class="d-flex mt-1 justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input input-primary" type="checkbox" id="customCheckc1" checked="">
+                  <label class="form-check-label text-muted" for="customCheckc1">Remember me?</label>
                 </div>
-            </div>
+                <a href="{% url "password_reset" %}" class="text-secondary f-w-400 mb-0">Forgot Password?</a>
+              </div>
+              <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary shadow px-sm-4">Login</button>
+              </div>
+              <div class="d-flex justify-content-between align-items-end mt-4">
+                <h6 class="f-w-500 mb-0">Don't have an Account?</h6>
+                <a href="{% url "register" %}" class="link-primary">Create Account</a>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
 {% endblock content %}

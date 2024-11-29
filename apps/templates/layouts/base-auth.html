@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}{% endblock title %} | Datta able Dashboard Template</title>
+    {% include "includes/head.html" %}
+    {% block extrastyle %}{% endblock extrastyle %}
+  </head>
+
+  <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+    {% block loader %}
+      {% include "includes/loader.html" %}
+    {% endblock loader %}
+
+    {% block content %}{% endblock content %}
+
+    {% include "includes/scripts.html" %}
+    {% block extra_js %}{% endblock extra_js %}
+  
+  </body>
+</html>

@@ -1,62 +1,43 @@
 <!DOCTYPE html>
+{% load i18n static admin_datta %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_direction as direction %}
+{% get_admin_setting as admin_setting %}
 <html lang="en">
+  <head>
+    
+    <title>{% block title %}{% endblock title %} | Django Datta Able </title>
 
-<head>
-    <title>
-        Flask Datta Able - {% block title %}{% endblock %} | AppSeed
-    </title>
-    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 11]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="description"
-          content="Free Datta Able Admin Template come up with latest Bootstrap 4 framework with basic components, form elements and lots of pre-made layout options"/>
-    <meta name="keywords"
-          content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template, free admin theme, free dashboard template"/>
-    <meta name="author" content="CodedThemes"/>
+    <link rel="canonical" href="https://app-generator.dev/product/datta-able/django/" />
 
-    <!-- Favicon icon -->
-    <link rel="icon" href="{{ config.ASSETS_ROOT }}/images/favicon.ico" type="image/x-icon">
-    <!-- fontawesome icon -->
-    <link rel="stylesheet" href="{{ config.ASSETS_ROOT }}/fonts/fontawesome/css/fontawesome-all.min.css">
-    <!-- animation css -->
-    <link rel="stylesheet" href="{{ config.ASSETS_ROOT }}/plugins/animation/css/animate.min.css">
-    <!-- vendor css -->
-    <link rel="stylesheet" href="{{ config.ASSETS_ROOT }}/css/style.css">
-    <!-- dark mode css -->
-    <link rel="stylesheet" href="{{ config.ASSETS_ROOT }}/css/dark.css">
+    {% include "includes/head.html" %}
+    {% block extrastyle %}{% endblock extrastyle %}
+    {% block extrahead %}{% endblock extrahead %}
 
-    <!-- Specific CSS goes HERE -->
-    {% block stylesheets %}{% endblock stylesheets %}
+  </head>
 
-</head>
-<body>
+  <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+    {% block loader %}
+      {% include "includes/loader.html" %}
+    {% endblock loader %}
 
-    <!-- [ Pre-loader ] start -->
-    <div class="loader-bg">
-        <div class="loader-track">
-            <div class="loader-fill"></div>
-        </div>
-    </div>
-    <!-- [ Pre-loader ] End -->
+    {% block sidebar %}
+        {% include "includes/sidebar.html" %}
+    {% endblock sidebar %}
 
-    {% include 'includes/sidebar.html' %}
-
-    {% include 'includes/navigation.html' %}
-
+    {% block navigation %}
+      {% include "includes/navigation.html" %}
+    {% endblock navigation %}
 
     {% block content %}{% endblock content %}
+     
+    {% block footer %}
+      {% include "includes/footer.html" %}
+    {% endblock footer %}
 
-    {% include 'includes/scripts.html' %}
-
-    <!-- Specific Page JS goes HERE  -->
-    {% block javascripts %}{% endblock javascripts %}
-
-</body>
+    {% include "includes/scripts.html" %}
+    {% block extra_js %}{% endblock extra_js %}
+  
+  </body>
 </html>
