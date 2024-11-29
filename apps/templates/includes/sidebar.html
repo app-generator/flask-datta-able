@@ -1,113 +1,159 @@
-<!-- [ navigation menu ] start -->
-<nav class="pcoded-navbar">
-    <div class="navbar-wrapper">
-        <div class="navbar-brand header-logo">
-            <a href="/" class="b-brand">
-                <div class="b-bg">
-                    <i class="feather icon-trending-up"></i>
-                </div>
-                <span class="b-title">Datta Able</span>
-            </a>
-            <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
-        </div>
-        <div class="navbar-content scroll-div">
-            <ul class="nav pcoded-inner-navbar">
-                <li class="nav-item pcoded-menu-caption">
-                    <label>Navigation</label>
-                </li>
-                <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
-                    class="nav-item {% if 'index' in segment %} active {% endif %}">
-                    <a href="/" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
-                            class="pcoded-mtext">Dashboard</span></a>
-                </li>
-                <li data-username="Profile Page" 
-                    class="nav-item {% if 'profile' in segment %} active {% endif %}">
-                    <a href="/profile.html" class="nav-link">
-                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
-                            <span class="pcoded-mtext">Profile Page</span></a>
-                </li>                
-                <li class="nav-item pcoded-menu-caption">
-                    <label>UI Element</label>
-                </li>
-                <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds"
-                    class="nav-item pcoded-hasmenu ">
-                    <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span
-                            class="pcoded-mtext">Components</span></a>
-                    <ul class="pcoded-submenu">
-                        <li class=""><a href="/bc_button.html" class="">Button</a></li>
-                        <li class=""><a href="/bc_badges.html" class="">Badges</a></li>
-                        <li class=""><a href="/bc_breadcrumb-pagination.html" class="">Breadcrumb & paggination</a></li>
-                        <li class=""><a href="/bc_collapse.html" class="">Collapse</a></li>
-                        <li class=""><a href="/bc_tabs.html" class="">Tabs & pills</a></li>
-                        <li class=""><a href="/bc_typography.html" class="">Typography</a></li>
-
-
-                        <li class=""><a href="/icon-feather.html" class="">Feather<span
-                                class="pcoded-badge label label-danger">NEW</span></a></li>
-                    </ul>
-                </li>
-                <li class="nav-item pcoded-menu-caption">
-                    <label>Forms & table</label>
-                </li>
-                <li data-username="form elements advance componant validation masking wizard picker select"
-                    class="nav-item {% if 'form_elements' in segment %} active {% endif %}">
-                    <a href="/form_elements.html" class="nav-link "><span class="pcoded-micon"><i
-                            class="feather icon-file-text"></i></span><span
-                            class="pcoded-mtext">Form elements</span></a>
-                </li>
-                <li data-username="Table bootstrap datatable footable" 
-                    class="nav-item {% if 'tbl_bootstrap' in segment %} active {% endif %}">
-                    <a href="/tbl_bootstrap.html" class="nav-link "><span class="pcoded-micon"><i
-                            class="feather icon-server"></i></span><span class="pcoded-mtext">Table</span></a>
-                </li>
-                <li class="nav-item pcoded-menu-caption">
-                    <label>Chart & Maps</label>
-                </li>
-                <li data-username="Charts Morris" 
-                    class="nav-item {% if 'chart-morris' in segment %} active {% endif %}">
-                    <a href="/chart-morris.html" class="nav-link "><span
-                        class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Chart</span></a>
-                </li>
-                <li data-username="Maps Google" 
-                    class="nav-item {% if 'map-google' in segment %} active {% endif %}">
-                    <a href="/map-google.html" class="nav-link "><span
-                        class="pcoded-micon"><i class="feather icon-map"></i></span><span
-                        class="pcoded-mtext">Maps</span></a></li>
-                <li class="nav-item pcoded-menu-caption">
-                    <label>Pages</label>
-                </li>
-                <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe"
-                    class="nav-item pcoded-hasmenu">
-                    <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span
-                            class="pcoded-mtext">Authentication</span></a>
-                    <ul class="pcoded-submenu">
-                        <li class=""><a href="/register.html" class="" target="_blank">Sign UP</a></li>
-                        <li class=""><a href="/login.html" class="" target="_blank">Sign IN</a></li>
-                    </ul>
-                </li>
-
-                <li data-username="Sample Page" class="nav-item"><a href="/page-blank.html" class="nav-link"><span
-                        class="pcoded-micon"><i class="feather icon-sidebar"></i></span><span class="pcoded-mtext">Sample page</span></a>
-                </li>
-
-                <li data-username="Disabled Menu" class="nav-item">
-                    <a href="{{ url_for('authentication_blueprint.logout') }}" class="nav-link">
-                        <span class="pcoded-micon"><i class="feather icon-power"></i></span><span class="pcoded-mtext">Logout</span>
-                    </a>
-                </li>
-                <li class="nav-item pcoded-menu-caption">
-                    <label>More Resources</label>
-                </li>                    
-                <li data-username="Support Page" class="nav-item ">
-                    <a target="_blank" href="https://appseed.us/support" class="nav-link">
-                        <span class="pcoded-micon">
-                            <i class="feather icon-headphones"></i>
-                        </span>
-                        <span class="pcoded-mtext">Support</span>
-                    </a>
-                </li>                
-            </ul>
-        </div>
+<nav class="pc-sidebar">
+  <div class="navbar-wrapper">
+    <div class="m-header">
+      <a href="{{ url_for('home_blueprint.index') }}" class="b-brand text-primary">
+        <!-- ========   Change your logo from here   ============ -->
+        <img src="{{ url_for('static', filename='assets/images/logo-white.svg') }}" class="img-fluid" alt="logo">
+      </a>
     </div>
+    <div class="navbar-content">
+
+      <ul class="pc-navbar">
+
+        <li class="pc-item pc-caption">
+          <label>Navigation</label>
+        </li>
+        <li class="pc-item">
+          <a href="{{ url_for('home_blueprint.index') }}" class="pc-link">
+            <span class="pc-micon">
+              <i data-feather="home"></i>
+            </span>
+            <span class="pc-mtext">Dashboard</span>
+          </a>
+        </li>
+        {% if current_user.is_authenticated %}
+        <li class="pc-item">
+          <a href="{{ url_for('home_blueprint.profile') }}" class="pc-link">
+            <span class="pc-micon">
+              <i data-feather="user"></i>
+            </span>
+            <span class="pc-mtext">Profile</span>
+          </a>
+        </li>
+        {% endif %}
+        <li class="pc-item pc-caption">
+          <label>UI Components</label>
+          <i data-feather="feather"></i>
+        </li>
+        <li class="pc-item">
+          <a href="{{ url_for('home_blueprint.color') }}" class="pc-link">
+            <span class="pc-micon"><i data-feather="droplet"></i></span>
+            <span class="pc-mtext">Color</span>
+          </a>
+        </li>
+        <li class="pc-item">
+          <a href="{{ url_for('home_blueprint.typography') }}" class="pc-link">
+            <span class="pc-micon"><i data-feather="type"></i></span>
+            <span class="pc-mtext">Typography</span>
+          </a>
+        </li>
+        <li class="pc-item">
+          <a href="{{ url_for('home_blueprint.icon_feather') }}" class="pc-link">
+            <span class="pc-micon"><i data-feather="feather"></i></span>
+            <span class="pc-mtext">Icons</span>
+          </a>
+        </li>
+        <li class="pc-item pc-caption">
+          <label>Pages</label>
+          <i data-feather="monitor"></i>
+        </li> 
+        {% if not current_user.is_authenticated %}
+        <li class="pc-item">
+          <a href="{{ url_for('authentication_blueprint.login') }}" class="pc-link">
+            <span class="pc-micon"><i data-feather="lock"></i></span>
+            <span class="pc-mtext">Login</span>
+          </a>
+        </li>
+        <li class="pc-item">
+          <a href="{{ url_for('authentication_blueprint.register') }}" class="pc-link">
+            <span class="pc-micon"><i data-feather="user-plus"></i></span>
+            <span class="pc-mtext">Register</span>
+          </a>
+        </li>
+        {% else %}
+        <li class="pc-item">
+          <a href="{{ url_for('authentication_blueprint.logout') }}" class="pc-link">
+            <span class="pc-micon">
+              <svg class="pc-icon me-2">
+                <use xlink:href="#custom-logout-1-outline"></use>
+              </svg>
+            </span>
+            <span class="pc-mtext">Logout</span>
+          </a>
+        </li>
+        {% endif %}
+        <li class="pc-item pc-caption">
+          <label>Other</label>
+          <i data-feather="sidebar"></i>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="#!" class="pc-link">
+            <span class="pc-micon">
+              <i data-feather="align-right"></i>
+            </span>
+            <span class="pc-mtext">Menu levels</span><span class="pc-arrow"><i class="ti ti-chevron-right"></i></span>
+          </a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="#!">Level 2.1</a></li>
+            <li class="pc-item pc-hasmenu">
+              <a href="#!" class="pc-link"
+                >Level 2.2<span class="pc-arrow"><i class="ti ti-chevron-right"></i></span
+              ></a>
+              <ul class="pc-submenu">
+                <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
+                <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
+                <li class="pc-item pc-hasmenu">
+                  <a href="#!" class="pc-link"
+                    >Level 3.3<span class="pc-arrow"><i class="ti ti-chevron-right"></i></span
+                  ></a>
+                  <ul class="pc-submenu">
+                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
+                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="pc-item pc-hasmenu">
+              <a href="#!" class="pc-link"
+                >Level 2.3<span class="pc-arrow"><i class="ti ti-chevron-right"></i></span
+              ></a>
+              <ul class="pc-submenu">
+                <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
+                <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
+                <li class="pc-item pc-hasmenu">
+                  <a href="#!" class="pc-link">
+                    Level 3.3
+                    <span class="pc-arrow"><i class="ti ti-chevron-right"></i></span>
+                  </a>
+                  <ul class="pc-submenu">
+                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
+                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="pc-item">
+          <a href="{{ url_for('home_blueprint.sample_page') }}" class="pc-link">
+            <span class="pc-micon"><i data-feather="sidebar"></i></span>
+            <span class="pc-mtext">Sample page</span>
+          </a>
+        </li>
+       
+      </ul>
+      <div class="card pc-user-card my-3 bg-white bg-opacity-10">
+        <div class="card-body text-center">
+          <img src="{{ url_for('static', filename='assets/images/application/img-coupon.png') }}" alt="img" class="img-fluid w-50">
+          <h5 class="mb-0 text-white mt-1">Datta Able</h5>
+          <a href="https://app-generator.dev/product/datta-able-pro/django/" class="btn btn-warning">
+            <svg class="pc-icon me-2">
+              <use xlink:href="#custom-logout-1-outline"></use>
+            </svg>
+            Upgrade to PRO
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>
-<!-- [ navigation menu ] end -->

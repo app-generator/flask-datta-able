@@ -4,38 +4,55 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 from apps.home import blueprint
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 from flask_login import login_required
 from jinja2 import TemplateNotFound
-
+from flask_login import login_required, current_user
+from apps import db
 
 @blueprint.route('/index')
-@login_required
 def index():
+    return render_template('pages/index.html', segment='index')
 
-    return render_template('home/index.html', segment='index')
+@blueprint.route('/icon_feather')
+def icon_feather():
+    return render_template('pages/icon-feather.html', segment='icon_feather')
+
+@blueprint.route('/color')
+def color():
+    return render_template('pages/color.html', segment='color')
+
+@blueprint.route('/sample_page')
+def sample_page():
+    return render_template('pages/sample-page.html', segment='sample_page')
+
+@blueprint.route('/typography')
+def typography():
+    return render_template('pages/typography.html', segment='typography')
 
 
-@blueprint.route('/<template>')
+@blueprint.route('/profile', methods=['GET', 'POST'])
 @login_required
-def route_template(template):
+def profile():
+    if request.method == 'POST':
+        first_name = request.form.get('first_name')
+        last_name = request.form.get('last_name')
+        address = request.form.get('address')
+        bio = request.form.get('bio')
 
-    try:
+        current_user.first_name = first_name
+        current_user.last_name = last_name
+        current_user.address = address
+        current_user.bio = bio
 
-        if not template.endswith('.html'):
-            template += '.html'
+        try:
+            db.session.commit()
+        except Exception as e:
+            db.session.rollback()
 
-        # Detect the current page
-        segment = get_segment(request)
+        return redirect(url_for('home_blueprint.profile'))
 
-        # Serve the file (if exists) from app/templates/home/FILE.html
-        return render_template("home/" + template, segment=segment)
-
-    except TemplateNotFound:
-        return render_template('home/page-404.html'), 404
-
-    except:
-        return render_template('home/page-500.html'), 500
+    return render_template('pages/profile.html', segment='profile')
 
 
 # Helper - Extract current page name from request

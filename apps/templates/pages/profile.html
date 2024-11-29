@@ -1,0 +1,144 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Profile {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="mb-0">Profile</h5>
+                </div>
+                </div>
+                <div class="col-md-12">
+                <ul class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="{{ url_for('home_blueprint.index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="javascript: void(0)">Basic UI</a></li>
+                    <li class="breadcrumb-item" aria-current="page">Profile</li>
+                </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Edit Info</h5>
+                    </div>
+                    <div class="card-block px-4">
+                        <form class="row" method="POST" action="{{ url_for('home_blueprint.profile') }}">
+                            <div class="col-sm-6 mb-4">
+                                <div class="form-group">
+                                    <label for="exampleInputUsername">Username</label>
+                                    <input class="form-control" id="exampleInputUsername" readonly 
+                                           value="{{ current_user.username }}" aria-describedby="userHelp" placeholder="Enter username">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-4">
+                                <div class="form-group">
+                                    <label {% if not current_user.email %} class="text-danger" {% endif %} for="exampleInputEmail1">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" readonly 
+                                           value="{{ current_user.email }}" aria-describedby="emailHelp" placeholder="Enter email">
+                                </div>
+                            </div>                                                
+                            <div class="col-sm-6 mb-4">
+                                <div class="form-group">
+                                    <label for="fn">First Name</label>
+                                    <input type="text" name="first_name" class="form-control" id="fn" 
+                                           value="{{ current_user.first_name or '' }}" placeholder="Your name">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-4">
+                                <div class="form-group">
+                                    <label for="ln">Last Name</label>
+                                    <input type="text" name="last_name" class="form-control" id="ln" 
+                                           value="{{ current_user.last_name or '' }}" placeholder="Your last name">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 mb-4">
+                                <div class="form-group">
+                                    <label for="add">Address</label>
+                                    <input type="text" name="address" class="form-control" id="add" 
+                                           value="{{ current_user.address or '' }}" placeholder="Full address here">
+                                    <small id="addd" class="form-text text-muted">This is your shipments address</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 mb-4">
+                                <div class="form-group">
+                                    <label for="abt">About Info</label>
+                                    <textarea name="bio" class="form-control" id="abt" placeholder="Bio">{{ current_user.bio or '' }}</textarea>
+                                    <small id="abf" class="form-text text-muted">We'll show this on your profile.</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 mb-2">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>                                                
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-block">
+                        <div class="d-flex align-items-center justify-content-center flex-column">
+                            <div class="w-50 p-3">
+                                <img src="{{ config.ASSETS_ROOT }}/images/user/profile.jpg" alt="profile image"
+                                    class="img-fluid rounded-circle">
+                            </div>
+                            <div class="text-center">
+                                <h4 class="font-weight-bold h6">
+                                    {{ current_user.username }}
+                                </h4>
+                                <p class="font-italic text-muted">
+                                    {% if current_user.email %} {{ current_user.email }} {% endif %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="small font-weight-light mt-4 text-center text-muted">
+                            <p>
+                                This page is your private space.
+                                <br />
+                            </p>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                        
+                            <a href="https://github.com/app-generator/app-generator" 
+                            target="_blank" 
+                            class="h6 text-muted d-block m-1"><i
+                            class="icon feather icon-github"></i></a>
+
+                            <a href="https://twitter.com/webappseed" 
+                            target="_blank" 
+                            class="h6 text-muted d-block m-1"><i
+                            class="icon feather icon-twitter"></i></a>
+
+                            <a href="https://appseed.us/support/" 
+                            target="_blank" 
+                            class="h6 text-muted d-block m-1"><i
+                            class="icon feather icon-help-circle"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
