@@ -4,7 +4,7 @@ Open-source **Flask** project crafted on top of **Datta Able Dashboard**, an ope
 The product is designed to deliver the best possible user experience with highly customizable feature-rich pages. 
 
 - 👉 [Flask Datta Able](https://app-generator.dev/product/datta-able/flask/) - `Product Page`
-- 👉 [Flask Datta Able](https://flask-datta.onrender.com) - `LIVE Demo` 
+- 👉 [Flask Datta Able](https://flask-datta-demo.onrender.com) - `LIVE Demo` 
 - 👉 [Flask Datta Able Documentation](https://app-generator.dev/docs/products/flask/datta-able/index.html) - `Complete Information` and Support Links
   - [Getting Started with Flask](https://app-generator.dev/docs/technologies/flask/index.html) - a `comprehensive tutorial`
   - `Configuration`: Install Tailwind/Flowbite, Prepare Environment, Setting up the Database 
