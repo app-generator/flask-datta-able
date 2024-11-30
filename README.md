@@ -43,11 +43,14 @@ The product is designed to deliver the best possible user experience with highly
 > The premium version provides more features, priority on support, and is more often updated - [Live Demo](https://flask-datta-pro.onrender.com/).
 
 - **Simple, Easy-to-Extend** Codebase
-- **Datta Able Design** - PRO Version
-- Bootstrap 5 CSS
-- **OAuth** - Github
-- **Extended User Profile**
-- Users Roles
+- **Berry PRO** Design - Bootstrap 5 Design 
+- **Extended User Profiles**
+- [Charts](https://flask-datta-pro.onrender.com/charts/) 
+- [DataTables](https://flask-datta-pro.onrender.com/tables): Server-side Pagination, Search, Filters, Export
+- API
+- **File Manager**
+- **Celery** (async tasks)
+- **Docker**
 - **Deployment-Ready** for Render 
 
 ![Datta Able PRO - Full-Stack Flask Starter provided by App-Generator.](https://user-images.githubusercontent.com/51070104/170474361-a58da82b-fff9-4a59-81a8-7ab99f478f48.png)

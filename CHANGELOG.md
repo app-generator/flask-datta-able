@@ -1,6 +1,13 @@
 # Change Log
 
-## [1.0.19] 2024-1-29
+## [1.0.20] 2024-11-30
+### Changes
+
+- Update Routes
+- Update Demo Link:
+  - [Flask Datta Able](https://flask-datta-demo.onrender.com)
+
+## [1.0.19] 2024-11-29
 ### Changes
 
 - Bump UI Version
