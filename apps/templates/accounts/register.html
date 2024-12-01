@@ -28,6 +28,17 @@
                   </div>
                 </a>
               </div>
+
+              {% if is_github %}
+              <div class="text-center mt-4">
+                <a href="{{ url_for('github.login') }}" style="cursor: pointer;" class="d-inline-block p-2 rounded border text-secondary">
+                  <span class="pc-micon">
+                    <i data-feather="github"></i>
+                  </span>
+                </a>
+              </div>
+              {% endif %}
+              
               <h4 class="text-center f-w-500 mt-4 mb-3">Sign up</h4>
 
 

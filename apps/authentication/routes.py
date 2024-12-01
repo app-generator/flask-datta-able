@@ -15,6 +15,7 @@ from apps import db, login_manager
 from apps.authentication import blueprint
 from apps.authentication.forms import LoginForm, CreateAccountForm
 from apps.authentication.models import Users
+from apps.config import Config
 
 from apps.authentication.util import verify_pass
 
@@ -119,6 +120,14 @@ def logout():
     return redirect(url_for('authentication_blueprint.login')) 
 
 # Errors
+
+@blueprint.context_processor
+def is_github():
+    if Config.GITHUB_ID and Config.GITHUB_SECRET:
+        return {'is_github': True}
+    
+    return {'is_github': False}
+
 
 @login_manager.unauthorized_handler
 def unauthorized_handler():
