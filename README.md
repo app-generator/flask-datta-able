@@ -30,7 +30,9 @@ The product is designed to deliver the best possible user experience with highly
 - Bootstrap 5 Styling 
 - Session-based Authentication
 - DB Persistence: SQLite (default), can be used with MySql, PgSql
-- Flask-Migrate
+- DB Tools: Flask-Migrate
+- Flask-RestX API
+- Async Tasks (Celery)
 - Docker 
 - CI/CD integration for Render 
 

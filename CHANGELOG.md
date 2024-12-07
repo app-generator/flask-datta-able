@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.0.21] 2024-12-07
+### Changes
+
+- Added Celery Support
+  - a minimal core
+- Flask-RestX API
+
 ## [1.0.20] 2024-11-30
 ### Changes
 
