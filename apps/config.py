@@ -12,6 +12,11 @@ class Config(object):
     # Assets Management
     ASSETS_ROOT = os.getenv('ASSETS_ROOT', '/static/assets')  
     
+    # celery 
+    CELERY_BROKER_URL     = "redis://localhost:6379"
+    CELERY_RESULT_BACKEND = "redis://localhost:6379"
+    CELERY_HOSTMACHINE    = "celery@app-generator"
+
     # Set up the App SECRET_KEY
     SECRET_KEY  = os.getenv('SECRET_KEY', 'S3cret_999')
 

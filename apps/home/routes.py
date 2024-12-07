@@ -3,12 +3,15 @@
 Copyright (c) 2019 - present AppSeed.us
 """
 
+import os, json, pprint
+
 from apps.home import blueprint
 from flask import render_template, request, redirect, url_for
 from flask_login import login_required
 from jinja2 import TemplateNotFound
 from flask_login import login_required, current_user
 from apps import db
+from apps.tasks import *
 
 @blueprint.route('/')
 @blueprint.route('/index')
@@ -30,7 +33,6 @@ def sample_page():
 @blueprint.route('/typography')
 def typography():
     return render_template('pages/typography.html', segment='typography')
-
 
 @blueprint.route('/profile', methods=['GET', 'POST'])
 @login_required
@@ -70,3 +72,14 @@ def get_segment(request):
 
     except:
         return None
+
+
+@blueprint.route('/tasks-test')
+def tasks_test():
+    
+    input_dict = { "data1": "04", "data2": "99" }
+    input_json = json.dumps(input_dict)
+
+    task = celery_test.delay( input_json )
+
+    return f"TASK_ID: {task.id}, output: { task.get() }"
