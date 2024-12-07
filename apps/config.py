@@ -9,6 +9,15 @@ class Config(object):
 
     basedir = os.path.abspath(os.path.dirname(__file__))
 
+
+    # for Product model
+    CURRENCY     = { 'usd' : 'usd' , 'eur' : 'eur' }
+    STATE        = { 'completed' : 1 , 'pending' : 2, 'refunded' : 3 }
+    PAYMENT_TYPE = { 'cc' : 1 , 'paypal' : 2, 'wire' : 3 }
+    
+    USERS_ROLES  = { 'ADMIN'  :1 , 'USER'      : 2 }
+    USERS_STATUS = { 'ACTIVE' :1 , 'SUSPENDED' : 2 }
+    
     # Assets Management
     ASSETS_ROOT = os.getenv('ASSETS_ROOT', '/static/assets')  
     
