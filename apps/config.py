@@ -77,6 +77,12 @@ class Config(object):
         # This will create a file in <app> FOLDER
         SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'db.sqlite3')
     
+
+    DYNAMIC_DATATB = {
+        "product": "apps.models.Product",
+        "sales": "apps.models.Sale"
+    }
+    
 class ProductionConfig(Config):
     DEBUG = False
 
