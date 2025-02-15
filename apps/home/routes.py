@@ -10,13 +10,21 @@ from flask import render_template, request, redirect, url_for
 from flask_login import login_required
 from jinja2 import TemplateNotFound
 from flask_login import login_required, current_user
-from apps import db
+from apps import db, config
 from apps.tasks import *
 
 @blueprint.route('/')
 @blueprint.route('/index')
 def index():
     return render_template('pages/index.html', segment='index')
+
+@blueprint.route('/dynamic-dt')
+def dynamic_dt():
+    context = {
+        'routes': config.Config.DYNAMIC_DATATB.keys(),
+        'segment': 'dynamic_dt'
+    }
+    return render_template('pages/dynamic-dt.html', **context)
 
 @blueprint.route('/icon_feather')
 def icon_feather():

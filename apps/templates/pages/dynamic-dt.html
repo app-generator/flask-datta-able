@@ -1,0 +1,57 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Profile {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="mb-0">Profile</h5>
+                </div>
+                </div>
+                <div class="col-md-12">
+                <ul class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="{{ url_for('home_blueprint.index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="javascript: void(0)">Basic UI</a></li>
+                    <li class="breadcrumb-item" aria-current="page">Profile</li>
+                </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Available Routes - defined in settings.DYNAMIC_DATATB</h5>
+                    </div>
+                    <div class="card-block px-4">
+                        <ul class="pc-submenu mt-3">
+                            {% for link in routes %}
+                                <li class="pc-item">
+                                    <a class="pc-link" href="{{ url_for('table_blueprint.model_dt', aPath=link) }}">{{ link }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
