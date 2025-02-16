@@ -13,7 +13,6 @@ from apps.config import Config
 Currency = Config.CURRENCY
 PAYMENT_TYPE = Config.PAYMENT_TYPE
 
-
 class Product(db.Model):
 
     __tablename__ = 'products'

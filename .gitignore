@@ -13,6 +13,7 @@ __pycache__/
 
 # venv
 env
+env_linux
 venv
 
 # other

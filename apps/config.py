@@ -9,7 +9,6 @@ class Config(object):
 
     basedir = os.path.abspath(os.path.dirname(__file__))
 
-
     # for Product model
     CURRENCY     = { 'usd' : 'usd' , 'eur' : 'eur' }
     STATE        = { 'completed' : 1 , 'pending' : 2, 'refunded' : 3 }
