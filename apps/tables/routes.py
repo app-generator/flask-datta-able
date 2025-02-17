@@ -2,7 +2,7 @@ import json, csv, io
 from flask_login import login_required
 from apps.tables import blueprint
 from flask import render_template, request, redirect, url_for, jsonify, make_response
-from apps.tables.utils import get_model_field_names, get_model_fk_values, name_to_class, user_filter
+from apps.tables.utils import get_model_field_names, get_model_fk_values, name_to_class, user_filter, exclude_auto_gen_fields
 from apps import db, config
 from apps.tables.models import HideShowFilter, ModelFilter, PageItems
 from sqlalchemy import and_
@@ -88,9 +88,18 @@ def model_dt(aPath):
     if not aModelClass:
         return f'ERR: Getting ModelClass for path: {aPath}', 404
 
-    db_fields = [field.name for field in aModelClass.__table__.columns]
+    # db_fields = [field.name for field in aModelClass.__table__.columns]
+    db_fields = [field.name for field in aModelClass.__table__.columns if not field.foreign_keys]
     fk_fields = get_model_fk_values(aModelClass)
-    db_filters = [f for f in db_fields if f not in fk_fields]
+    db_filters = []
+    for f in db_fields:
+        if f not in fk_fields.keys():
+            db_filters.append( f )
+
+    choices_dict = {}
+    for column in aModelClass.__table__.columns:
+        if isinstance(column.type, db.Enum):
+            choices_dict[column.name] = [(choice.name, choice.value) for choice in column.type.enum_class]
 
     field_names = []
     for field_name in db_fields:
@@ -123,7 +132,7 @@ def model_dt(aPath):
         p_items = page_items.items_per_page
 
     page = request.args.get('page', 1, type=int)
-    queryset = user_filter(request, queryset, db_fields, fk_fields)
+    queryset = user_filter(request, queryset, db_fields, fk_fields.keys())
     pagination = queryset.paginate(page=page, per_page=p_items, error_out=False)
     items = pagination.items
 
@@ -150,9 +159,11 @@ def model_dt(aPath):
         'date_time_fields': date_time_fields,
         'email_fields': email_fields,
         'text_fields': text_fields,
-        'fk_fields_keys': fk_fields,
+        'fk_fields_keys': fk_fields.keys(),
         'fk_fields': fk_fields,
         'segment': 'dynamic_dt',
+        'choices_dict': choices_dict,
+        'exclude_auto_gen_fields': exclude_auto_gen_fields(aModelClass)
     }
     return render_template('pages/dynamic-dt-model.html', **context)
 
@@ -175,8 +186,13 @@ def create(aPath):
         fk_fields = get_model_fk_values(aModelClass)
 
         for attribute, value in request.form.items():
-            if attribute in fk_fields:
-                value = name_to_class(fk_fields[attribute]).query.filter_by(id=value).first()
+            if attribute in fk_fields.keys():
+                table_name = None
+                for product in fk_fields[attribute]:
+                    table_name = product.__class__.__tablename__
+                if table_name:
+                    model_name = config.Config.DYNAMIC_DATATB[table_name]
+                    value = name_to_class(model_name).query.filter_by(id=value).first()
 
             data[attribute] = value if value else ''
 
@@ -228,8 +244,13 @@ def update(aPath, id):
     if request.method == 'POST':
         for attribute, value in request.form.items():
             if hasattr(item, attribute) and getattr(item, attribute, value) is not None:
-                if attribute in fk_fields:
-                    value = name_to_class(fk_fields[attribute]).query.filter_by(id=value).first()
+                if attribute in fk_fields.keys():
+                    table_name = None
+                    for product in fk_fields[attribute]:
+                        table_name = product.__class__.__tablename__
+                    if table_name:
+                        model_name = config.Config.DYNAMIC_DATATB[table_name]
+                        value = name_to_class(model_name).query.filter_by(id=value).first()
 
                 setattr(item, attribute, value)
         
@@ -311,3 +332,17 @@ def getattribute(value, arg):
         return attr_value
     except AttributeError:
         return ''
+    
+
+@blueprint.app_template_filter('getenumattribute')
+def getenumattribute(value, arg):
+    try:
+        attr_value = getattr(value, arg)
+        return attr_value.value
+    except AttributeError:
+        return ''
+
+
+@blueprint.app_template_filter('get')
+def get(dict_data, key):
+    return dict_data.get(key, [])

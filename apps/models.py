@@ -9,9 +9,21 @@ from apps.exceptions.exception import InvalidUsage
 import datetime as dt
 from sqlalchemy.orm import relationship
 from apps.config import Config
+from enum import Enum
 
-Currency = Config.CURRENCY
-PAYMENT_TYPE = Config.PAYMENT_TYPE
+# Currency = Config.CURRENCY
+# PAYMENT_TYPE = Config.PAYMENT_TYPE
+
+
+class Currency(Enum):
+    usd = 'usd'
+    eur = 'eur'
+
+class PAYMENT_TYPE(Enum):
+    cc = 'cc'
+    paypal = 'paypal'
+    wire = 'wire'
+
 
 
 class Product(db.Model):
@@ -24,13 +36,16 @@ class Product(db.Model):
     information   = db.Column(db.String(128),  nullable=False)
     description   = db.Column(db.Text,         nullable=True)
     price         = db.Column(db.Integer,      nullable=False)
-    currency      = db.Column(db.String(10),   default=Currency['usd'], nullable=False)
+    currency      = db.Column(db.Enum(Currency), default=Currency.usd, nullable=False)
     date_created  = db.Column(db.DateTime,     default=dt.datetime.utcnow())
     date_modified = db.Column(db.DateTime,     default=db.func.current_timestamp(),
                                                onupdate=db.func.current_timestamp())
     
     def __init__(self, **kwargs):
         super(Product, self).__init__(**kwargs)
+
+    def __repr__(self):
+        return f"{self.name} / ${self.price}"
 
     @classmethod
     def find_by_id(cls, _id: int) -> "Product":
@@ -68,9 +83,9 @@ class Sale(db.Model):
     state         = db.Column(db.Integer,     nullable=False)
     value         = db.Column(db.Integer,     nullable=False)
     fee           = db.Column(db.Integer,     default=0)
-    currency      = db.Column(db.String(10),  default=Currency['usd'], nullable=False)
+    currency      = db.Column(db.Enum(Currency), default=Currency.usd, nullable=False)
     client        = db.Column(db.String(128), nullable=True)
-    payment_type  = db.Column(db.Integer(),   default=PAYMENT_TYPE['cc'], nullable=False)
+    payment_type  = db.Column(db.Enum(PAYMENT_TYPE), default=PAYMENT_TYPE.cc, nullable=False)
     purchase_date = db.Column(db.DateTime,    default=dt.datetime.utcnow())
     creation_date = db.Column(db.DateTime,    default=dt.datetime.utcnow())
     update_date   = db.Column(db.DateTime,    default=db.func.current_timestamp(),
@@ -79,6 +94,9 @@ class Sale(db.Model):
     @classmethod
     def find_by_id(cls, _id: int) -> "Sale":
         return cls.query.filter_by(id=_id).first() 
+
+    def __repr__(self):
+        return f"{self.product}"
 
     def save(self) -> None:
         try:

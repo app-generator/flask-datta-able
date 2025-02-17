@@ -183,7 +183,11 @@
                                             {% for item in items %}
                                             <tr class="align-middle table-row">
                                                 {% for field_name in db_field_names %}
-                                                <td class="td_{{ field_name }} data-td">{{ item|getattribute(field_name) }}</td>
+                                                    {% if field_name in choices_dict %}
+                                                    <td class="td_{{ field_name }} data-td">{{ item|getenumattribute(field_name) }}</td>
+                                                    {% else %}
+                                                    <td class="td_{{ field_name }} data-td">{{ item|getattribute(field_name) }}</td>
+                                                    {% endif %}
                                                 {% endfor %}
                     
                                                 {% if current_user.is_authenticated %}
@@ -219,7 +223,7 @@
                                                                 
                                                                 <div class="row">
                                                                     <!-- FKs -->
-                                                                    {% for key, values in fk_fields.items %}
+                                                                    {% for key, values in fk_fields.items() %}
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label for="id_{{ key }}" class="form-label">{{ key }}</label>
@@ -233,24 +237,33 @@
                                                                     {% endfor %}
     
                                                                     {% for field_name in db_field_names %}
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">                                                                    
-                                                                            {% if field_name not in read_only_fields and field_name not in fk_fields_keys %}
+                                                                        {% if field_name not in read_only_fields and field_name not in fk_fields_keys and field_name not in exclude_auto_gen_fields %}
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">                                                                    
                                                                                 <label for="id_{{ field_name }}" class="form-label">{{ field_name|title }}</label>
-                                                                                {% if field_name in integer_fields %}
-                                                                                <input type="number" name="{{ field_name }}" value="{{ item|getattribute(field_name) }}" class="form-control" placeholder="{{ field_name }}" id="id_{{ field_name }}">
-                                                                                {% elif field_name in date_time_fields %}
-                                                                                <input type="datetime-local" name="{{ field_name }}" value="{{ item|getattribute(field_name) }}" class="form-control" placeholder="{{ field_name }}" id="id_{{ field_name }}">
-                                                                                {% elif field_name in email_fields %}
-                                                                                <input type="email" name="{{ field_name }}" value="{{ item|getattribute(field_name) }}" class="form-control" placeholder="{{ field_name }}" id="id_{{ field_name }}">
-                                                                                {% elif field_name in text_fields %}
-                                                                                <input type="text" name="{{ field_name }}" value="{{ item|getattribute(field_name) }}" class="form-control" placeholder="{{ field_name }}" id="id_{{ field_name }}">
+                                                                                {% if field_name in choices_dict %}
+                                                                                    <select name="{{ field_name }}" id="id_{{ field_name }}" class="form-select">
+                                                                                        <option value="">Select {{ field_name }}</option>
+                                                                                        {% for key, value in choices_dict|get(field_name) %}
+                                                                                            <option {% if item|getenumattribute(field_name) == value %}selected{% endif %} value="{{ value }}">{{ key }}</option>
+                                                                                        {% endfor %}
+                                                                                    </select>
                                                                                 {% else %}
-                                                                                <input type="text" name="{{ field_name }}" value="{{ item|getattribute(field_name) }}" class="form-control" placeholder="{{ field_name }}" id="id_{{ field_name }}">
+                                                                                    {% if field_name in integer_fields %}
+                                                                                    <input type="number" name="{{ field_name }}" value="{{ item|getattribute(field_name) }}" class="form-control" placeholder="{{ field_name }}" id="id_{{ field_name }}">
+                                                                                    {% elif field_name in date_time_fields %}
+                                                                                    <input type="datetime-local" name="{{ field_name }}" value="{{ item|getattribute(field_name) }}" class="form-control" placeholder="{{ field_name }}" id="id_{{ field_name }}">
+                                                                                    {% elif field_name in email_fields %}
+                                                                                    <input type="email" name="{{ field_name }}" value="{{ item|getattribute(field_name) }}" class="form-control" placeholder="{{ field_name }}" id="id_{{ field_name }}">
+                                                                                    {% elif field_name in text_fields %}
+                                                                                    <input type="text" name="{{ field_name }}" value="{{ item|getattribute(field_name) }}" class="form-control" placeholder="{{ field_name }}" id="id_{{ field_name }}">
+                                                                                    {% else %}
+                                                                                    <input type="text" name="{{ field_name }}" value="{{ item|getattribute(field_name) }}" class="form-control" placeholder="{{ field_name }}" id="id_{{ field_name }}">
+                                                                                    {% endif %}
                                                                                 {% endif %}
-                                                                            {% endif %}
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
+                                                                        {% endif %}
                                                                     {% endfor %}
                                                                 </div>
 
@@ -418,11 +431,11 @@
                                     <form method="post" action="{{ url_for('table_blueprint.create', aPath=link) }}" class="row">
 
                                         <!-- FKs -->
-                                        {% for key, values in fk_fields.items %}
+                                        {% for field, values in fk_fields.items() %}
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="id_{{ key }}" class="form-label">{{ key }}</label>
-                                                <select class="form-control" name="{{ key }}" id="id_{{ key }}">
+                                                <label for="id_{{ field }}" class="form-label">{{ field|title }}</label>
+                                                <select class="form-control" name="{{ field }}" id="id_{{ field }}">
                                                     {% for i in values %}
                                                         <option value="{{ i.id }}">{{ i }}</option>
                                                     {% endfor %}
@@ -432,18 +445,27 @@
                                         {% endfor %}
 
                                         {% for field_name in db_field_names %}
-                                            {% if field_name not in read_only_fields and field_name not in fk_fields_keys %}
+                                            {% if field_name not in read_only_fields and field_name not in fk_fields_keys and field_name not in exclude_auto_gen_fields %}
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="id_{{ field_name }}" class="form-label">{{ field_name }}</label>
-                                                    {% if field_name in integer_fields %}
-                                                    <input type="number" name="{{ field_name }}" class="form-control" placeholder="{{ field_name }}" id="id_{{ field_name }}">
-                                                    {% elif field_name in date_time_fields %}
-                                                    <input type="datetime-local" name="{{ field_name }}" class="form-control" placeholder="{{ field_name }}" id="id_{{ field_name }}">
-                                                    {% elif field_name in email_fields %}
-                                                    <input type="email" name="{{ field_name }}" class="form-control" placeholder="{{ field_name }}" id="id_{{ field_name }}">
+                                                    <label for="id_{{ field_name }}" class="form-label">{{ field_name|title }}</label>
+                                                    {% if field_name in choices_dict %}
+                                                        <select name="{{ field_name }}" id="id_{{ field_name }}" class="form-select">
+                                                            <option value="">Select {{ field_name }}</option>
+                                                            {% for key, value in choices_dict|get(field_name) %}
+                                                                <option value="{{ key }}">{{ key }}</option>
+                                                            {% endfor %}
+                                                        </select>
                                                     {% else %}
-                                                    <input type="text" name="{{ field_name }}" class="form-control" placeholder="{{ field_name }}" id="id_{{ field_name }}">
+                                                        {% if field_name in integer_fields %}
+                                                        <input type="number" name="{{ field_name }}" class="form-control" placeholder="{{ field_name|title }}" id="id_{{ field_name }}">
+                                                        {% elif field_name in date_time_fields %}
+                                                        <input type="datetime-local" name="{{ field_name }}" class="form-control" placeholder="{{ field_name|title }}" id="id_{{ field_name }}">
+                                                        {% elif field_name in email_fields %}
+                                                        <input type="email" name="{{ field_name }}" class="form-control" placeholder="{{ field_name|title }}" id="id_{{ field_name }}">
+                                                        {% else %}
+                                                        <input type="text" name="{{ field_name }}" class="form-control" placeholder="{{ field_name|title }}" id="id_{{ field_name }}">
+                                                        {% endif %}
                                                     {% endif %}
                                                 </div>
                                             </div>
