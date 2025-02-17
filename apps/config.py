@@ -78,7 +78,7 @@ class Config(object):
     
 
     DYNAMIC_DATATB = {
-        "product": "apps.models.Product",
+        "products": "apps.models.Product",
         "sales": "apps.models.Sale"
     }
     
