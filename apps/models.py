@@ -10,12 +10,10 @@ import datetime as dt
 from sqlalchemy.orm import relationship
 from apps.config import Config
 from enum import Enum
-
-# Currency = Config.CURRENCY
-# PAYMENT_TYPE = Config.PAYMENT_TYPE
+import datetime
 
 
-class Currency(Enum):
+class CURRENCY_TYPE(Enum):
     usd = 'usd'
     eur = 'eur'
 
@@ -24,18 +22,20 @@ class PAYMENT_TYPE(Enum):
     paypal = 'paypal'
     wire = 'wire'
 
+class REFUNDED_TYPE(Enum):
+    yes = 'yes'
+    no = 'no'
 
 class Product(db.Model):
 
     __tablename__ = 'products'
 
     id            = db.Column(db.Integer,      primary_key=True)
-    user_id       = db.Column(db.Integer,      default=1)
     name          = db.Column(db.String(128),  nullable=False)
-    information   = db.Column(db.String(128),  nullable=False)
-    description   = db.Column(db.Text,         nullable=True)
+    info          = db.Column(db.Text,         nullable=True)
     price         = db.Column(db.Integer,      nullable=False)
-    currency      = db.Column(db.Enum(Currency), default=Currency.usd, nullable=False)
+    currency      = db.Column(db.Enum(CURRENCY_TYPE), default=CURRENCY_TYPE.usd, nullable=False)
+
     date_created  = db.Column(db.DateTime,     default=dt.datetime.utcnow())
     date_modified = db.Column(db.DateTime,     default=db.func.current_timestamp(),
                                                onupdate=db.func.current_timestamp())
@@ -79,14 +79,15 @@ class Sale(db.Model):
     id            = db.Column(db.Integer,     primary_key=True)
     product       = db.Column(db.Integer,     db.ForeignKey("products.id", ondelete="cascade"), nullable=False)
     product_id    = relationship(Product,     uselist=False, backref="sales")
-    state         = db.Column(db.Integer,     nullable=False)
-    value         = db.Column(db.Integer,     nullable=False)
-    fee           = db.Column(db.Integer,     default=0)
-    currency      = db.Column(db.Enum(Currency), default=Currency.usd, nullable=False)
-    client        = db.Column(db.String(128), nullable=True)
+ 
+    buyerEmail    = db.Column(db.String(128), nullable=False)
+    purchase_date = db.Column(db.DateTime,    default=db.func.current_timestamp())
     payment_type  = db.Column(db.Enum(PAYMENT_TYPE), default=PAYMENT_TYPE.cc, nullable=False)
-    purchase_date = db.Column(db.DateTime,    default=dt.datetime.utcnow())
-    creation_date = db.Column(db.DateTime,    default=dt.datetime.utcnow())
+    country       = db.Column(db.String(128), default='USA')
+    refunded      = db.Column(db.Enum(REFUNDED_TYPE), default=REFUNDED_TYPE.no, nullable=False)
+    quantity      = db.Column(db.Integer,     default=1)
+
+    creation_date = db.Column(db.DateTime,    default=db.func.current_timestamp())
     update_date   = db.Column(db.DateTime,    default=db.func.current_timestamp(),
                                               onupdate=db.func.current_timestamp())
 
