@@ -2,7 +2,6 @@ import importlib
 from sqlalchemy import or_
 from sqlalchemy import DateTime, func
 
-
 def get_model_fk_values(aModelClass):
     fk_values = {}
 
@@ -39,7 +38,6 @@ def name_to_class(name: str):
     except Exception as e:
         print(f"Error importing {name}: {e}")
         return None
-
 
 def user_filter(request, query, fields, fk_fields=[]):
     value = request.args.get('search')

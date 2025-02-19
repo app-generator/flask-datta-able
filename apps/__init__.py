@@ -21,7 +21,7 @@ def register_extensions(app):
 
 
 def register_blueprints(app):
-    for module_name in ('authentication', 'home', 'tables',):
+    for module_name in ('authentication', 'home', 'tables', 'dyn_api'):
         module = import_module('apps.{}.routes'.format(module_name))
         app.register_blueprint(module.blueprint)
 

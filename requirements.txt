@@ -19,6 +19,8 @@ redis==5.2.1
 marshmallow==3.14.1
 marshmallow-sqlalchemy==0.22.3
 colorama==0.4.4
+PyJWT~=2.4.0
+WTForms-Alchemy==0.18.0
 
 # utils
 email_validator==2.2.0

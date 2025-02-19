@@ -8,10 +8,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from apps.exceptions.exception import InvalidUsage
 import datetime as dt
 from sqlalchemy.orm import relationship
-from apps.config import Config
 from enum import Enum
-import datetime
-
 
 class CURRENCY_TYPE(Enum):
     usd = 'usd'
@@ -34,7 +31,7 @@ class Product(db.Model):
     name          = db.Column(db.String(128),  nullable=False)
     info          = db.Column(db.Text,         nullable=True)
     price         = db.Column(db.Integer,      nullable=False)
-    currency      = db.Column(db.Enum(CURRENCY_TYPE), default=CURRENCY_TYPE.usd, nullable=False)
+    #currency      = db.Column(db.Enum(CURRENCY_TYPE), default=CURRENCY_TYPE.usd, nullable=False)
 
     date_created  = db.Column(db.DateTime,     default=dt.datetime.utcnow())
     date_modified = db.Column(db.DateTime,     default=db.func.current_timestamp(),
@@ -82,9 +79,9 @@ class Sale(db.Model):
  
     buyerEmail    = db.Column(db.String(128), nullable=False)
     purchase_date = db.Column(db.DateTime,    default=db.func.current_timestamp())
-    payment_type  = db.Column(db.Enum(PAYMENT_TYPE), default=PAYMENT_TYPE.cc, nullable=False)
+    #payment_type  = db.Column(db.Enum(PAYMENT_TYPE), default=PAYMENT_TYPE.cc, nullable=False)
     country       = db.Column(db.String(128), default='USA')
-    refunded      = db.Column(db.Enum(REFUNDED_TYPE), default=REFUNDED_TYPE.no, nullable=False)
+    #refunded      = db.Column(db.Enum(REFUNDED_TYPE), default=REFUNDED_TYPE.no, nullable=False)
     quantity      = db.Column(db.Integer,     default=1)
 
     creation_date = db.Column(db.DateTime,    default=db.func.current_timestamp())
