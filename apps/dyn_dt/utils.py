@@ -1,6 +1,29 @@
 import importlib
 from sqlalchemy import or_
 from sqlalchemy import DateTime, func
+from apps import db 
+
+class PageItems(db.Model):
+    __tablename__ = 'page_items'
+    id = db.Column(db.Integer, primary_key=True)
+    parent = db.Column(db.String(255), nullable=True)
+    items_per_page = db.Column(db.Integer, default=25)
+
+
+class HideShowFilter(db.Model):
+    __tablename__ = 'hide_show_filter'
+    id = db.Column(db.Integer, primary_key=True)
+    parent = db.Column(db.String(255), nullable=True)
+    key = db.Column(db.String(255), nullable=False)
+    value = db.Column(db.Boolean, default=False)
+
+class ModelFilter(db.Model):
+    __tablename__ = 'model_filter'
+    id = db.Column(db.Integer, primary_key=True)
+    parent = db.Column(db.String(255), nullable=True)
+    key = db.Column(db.String(255), nullable=False)
+    value = db.Column(db.String(255), nullable=False)
+
 
 def get_model_fk_values(aModelClass):
     fk_values = {}
@@ -28,6 +51,7 @@ def get_model_field_names(model, field_type):
         if isinstance(column.type, field_type)
     ]
 
+
 def name_to_class(name: str):
     try:
         module_name = '.'.join(name.split('.')[:-1])
@@ -38,6 +62,7 @@ def name_to_class(name: str):
     except Exception as e:
         print(f"Error importing {name}: {e}")
         return None
+
 
 def user_filter(request, query, fields, fk_fields=[]):
     value = request.args.get('search')

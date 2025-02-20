@@ -4,11 +4,18 @@ from apps.dyn_dt import blueprint
 from flask import render_template, request, redirect, url_for, jsonify, make_response
 from apps.dyn_dt.utils import get_model_field_names, get_model_fk_values, name_to_class, user_filter, exclude_auto_gen_fields
 from apps import db, config
-from apps.dyn_dt.models import HideShowFilter, ModelFilter, PageItems
+from apps.dyn_dt.utils import *
 from sqlalchemy import and_
 from sqlalchemy import Integer, DateTime, String, Text
 from datetime import datetime
 
+@blueprint.route('/dynamic-dt')
+def dynamic_dt():
+    context = {
+        'routes': config.Config.DYNAMIC_DATATB.keys(),
+        'segment': 'dynamic_dt'
+    }
+    return render_template('dyn_dt/index.html', **context)
 
 @blueprint.route('/create_filter/<model_name>', methods=["POST"])
 def create_filter(model_name):
@@ -74,9 +81,7 @@ def delete_filter(model_name, id):
     return jsonify({'error': 'Filter not found'}), 404
 
 
-
 @blueprint.route('/dynamic-dt/<aPath>', methods=['GET', 'POST'])
-@login_required
 def model_dt(aPath):
     aModelName = None
     aModelClass = None
@@ -165,8 +170,7 @@ def model_dt(aPath):
         'choices_dict': choices_dict,
         'exclude_auto_gen_fields': exclude_auto_gen_fields(aModelClass)
     }
-    return render_template('pages/dynamic-dt-model.html', **context)
-
+    return render_template('dyn_dt/model.html', **context)
 
 
 @blueprint.route('/create/<aPath>', methods=["POST"])
@@ -314,9 +318,6 @@ def export_csv(aPath):
     response.headers['Content-Disposition'] = f'attachment; filename="{aPath.lower()}.csv"'
 
     return response
-
-
-
 
 
 # Template filter

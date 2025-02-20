@@ -19,14 +19,6 @@ from apps.tasks import *
 def index():
     return render_template('pages/index.html', segment='index')
 
-@blueprint.route('/dynamic-dt')
-def dynamic_dt():
-    context = {
-        'routes': config.Config.DYNAMIC_DATATB.keys(),
-        'segment': 'dynamic_dt'
-    }
-    return render_template('pages/dynamic-dt.html', **context)
-
 @blueprint.route('/icon_feather')
 def icon_feather():
     return render_template('pages/icon-feather.html', segment='icon_feather')
