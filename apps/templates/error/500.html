@@ -1,0 +1,27 @@
+{% extends 'layouts/base-auth.html' %}
+
+{% block title %} Error 500 - Server Error {% endblock title %}
+
+{% block content %}
+
+    <div class="auth-wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="text-center">
+                        <img src="{{url_for('static', filename = 'assets/images/error/generic.png')}}" alt="" class="img-fluid">
+                        <h5 class="text-muted my-4">
+                            Server Error. Please contact support.
+                        </h5>
+                        <form action="#">
+                            <a href="/" class="btn btn-primary mb-4">
+                                HOME
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

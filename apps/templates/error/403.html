@@ -1,0 +1,27 @@
+{% extends 'layouts/base-auth.html' %}
+
+{% block title %} Error 403 - Access denied {% endblock title %}
+
+{% block content %}
+
+    <div class="auth-wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="text-center">
+                        <img src="{{url_for('static', filename = 'assets/images/error/generic.png')}}" alt="" class="img-fluid">
+                        <h5 class="text-muted my-4">
+                            Access denied. Please contact support or authenticate. 
+                        </h5>
+                        <form action="#">
+                            <a href="{{ url_for('authentication_blueprint.login') }}" class="btn btn-primary mb-4">
+                                Sign IN
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

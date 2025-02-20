@@ -74,7 +74,31 @@ def get_segment(request):
     except:
         return None
 
+@blueprint.route('/error-403')
+def error_403():
+    return render_template('error/403.html'), 403
 
+@blueprint.errorhandler(403)
+def not_found_error(error):
+    return redirect(url_for('error-403'))
+
+@blueprint.route('/error-404')
+def error_404():
+    return render_template('error/404.html'), 404
+
+@blueprint.errorhandler(404)
+def not_found_error(error):
+    return redirect(url_for('error-404'))
+
+@blueprint.route('/error-500')
+def error_500():
+    return render_template('error/500.html'), 500
+
+@blueprint.errorhandler(500)
+def not_found_error(error):
+    return redirect(url_for('error-500'))
+
+# Celery (to be refactored)
 @blueprint.route('/tasks-test')
 def tasks_test():
     

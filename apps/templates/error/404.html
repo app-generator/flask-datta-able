@@ -1,0 +1,23 @@
+{% extends 'layouts/base-auth.html' %}
+
+{% block title %} Error 404 - Page not found {% endblock title %}
+
+{% block content %}
+
+    <div class="auth-wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="text-center">
+                        <img src="{{url_for('static', filename = 'assets/images/error/404.png')}}" alt="" class="img-fluid">
+                        <h5 class="text-muted my-4">Oops! Page not found!</h5>
+                        <form action="#">
+                            <button class="btn  btn-primary mb-4"><i class="feather icon-refresh-ccw me-2"></i>Reload</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
