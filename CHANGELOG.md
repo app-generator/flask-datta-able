@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.22] 2025-02-20
+### Changes
+
+- Added Dynamic DataTables
+- Remove the Flask-RestX API
+
 ## [1.0.21] 2024-12-07
 ### Changes
 

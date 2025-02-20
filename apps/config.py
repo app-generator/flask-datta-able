@@ -3,15 +3,7 @@
 Copyright (c) 2019 - present AppSeed.us
 """
 
-import os, random, string
-import apps.models as DYNAMIC_API_MODELS_MODULE
-
-REGISTER_MODEL_MODULE = DYNAMIC_API_MODELS_MODULE.__name__
-
-DYNAMIC_API = {
-    "products": "apps.models.Product",
-    "sales": "apps.models.Sale"
-}
+import os
 
 class Config(object):
 

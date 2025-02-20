@@ -1,10 +1,10 @@
 import json, csv, io
 from flask_login import login_required
-from apps.tables import blueprint
+from apps.dyn_dt import blueprint
 from flask import render_template, request, redirect, url_for, jsonify, make_response
-from apps.tables.utils import get_model_field_names, get_model_fk_values, name_to_class, user_filter, exclude_auto_gen_fields
+from apps.dyn_dt.utils import get_model_field_names, get_model_fk_values, name_to_class, user_filter, exclude_auto_gen_fields
 from apps import db, config
-from apps.tables.models import HideShowFilter, ModelFilter, PageItems
+from apps.dyn_dt.models import HideShowFilter, ModelFilter, PageItems
 from sqlalchemy import and_
 from sqlalchemy import Integer, DateTime, String, Text
 from datetime import datetime

@@ -11,7 +11,7 @@ from flask_login import login_required
 from jinja2 import TemplateNotFound
 from flask_login import login_required, current_user
 from apps import db, config
-from apps.models import Product, Sale
+from apps.models import *
 from apps.tasks import *
 
 @blueprint.route('/')

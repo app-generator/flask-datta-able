@@ -31,7 +31,7 @@ The product is designed to deliver the best possible user experience with highly
 - Session-based Authentication
 - DB Persistence: SQLite (default), can be used with MySql, PgSql
 - DB Tools: Flask-Migrate
-- Flask-RestX API
+- Dynamic DT
 - Async Tasks (Celery)
 - Docker 
 - CI/CD integration for Render 
