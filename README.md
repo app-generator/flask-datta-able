@@ -25,16 +25,15 @@ The product is designed to deliver the best possible user experience with highly
 
 ## Features
 
-- Simple, Easy-to-Extend Codebase
-- Datta Able Design - Full Integration 
-- Bootstrap 5 Styling 
-- Session-based Authentication
+- Simple, Easy-to-Extend codebase, [Blueprint Pattern](https://app-generator.dev/blog/flask-blueprints-a-developers-guide/)
+- Up-to-date Dependencies
+- [Datta Able](https://app-generator.dev/docs/templates/bootstrap/datta-able.html) Full Integration
+- [Bootstrap](https://app-generator.dev/docs/templates/bootstrap/index.html) 5 Styling
+- Authentication: Session Based, GitHub OAuth
 - DB Persistence: SQLite (default), can be used with MySql, PgSql
-- DB Tools: Flask-Migrate
-- Dynamic DT
-- Async Tasks (Celery)
-- Docker 
-- CI/CD integration for Render 
+- [Dynamic DataTables](https://flask-datta-demo.onrender.com/dynamic-dt) - manage data without coding
+- Docker
+- CI/CD integration for [Render](https://app-generator.dev/docs/deployment/render/index.html)
 
 ![Flask Datta Able - Open-Source Flask Starter](https://user-images.githubusercontent.com/51070104/176118649-7233ffbc-6118-4f56-8cda-baa81d256877.png)
 

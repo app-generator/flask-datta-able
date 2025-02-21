@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.0.24] 2025-02-21
+### Changes
+
+- Update RM (minor)
+
 ## [1.0.23] 2025-02-20
 ### Changes
 
