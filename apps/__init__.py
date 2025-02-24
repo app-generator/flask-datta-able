@@ -22,7 +22,7 @@ def register_blueprints(app):
         module = import_module('apps.{}.routes'.format(module_name))
         app.register_blueprint(module.blueprint)
 
-from apps.authentication.oauth import github_blueprint
+from apps.authentication.oauth import github_blueprint, google_blueprint
 
 def create_app(config):
 
@@ -41,4 +41,5 @@ def create_app(config):
     register_extensions(app)
     register_blueprints(app)
     app.register_blueprint(github_blueprint, url_prefix="/login")    
+    app.register_blueprint(google_blueprint, url_prefix="/login")    
     return app

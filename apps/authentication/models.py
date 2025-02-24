@@ -26,6 +26,7 @@ class Users(db.Model, UserMixin):
     password      = db.Column(db.LargeBinary)
 
     oauth_github  = db.Column(db.String(100), nullable=True)
+    oauth_google  = db.Column(db.String(100), nullable=True)
 
     def __init__(self, **kwargs):
         for property, value in kwargs.items():
