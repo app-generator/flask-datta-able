@@ -9,7 +9,6 @@ from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from importlib import import_module
-from apps.authentication.oauth import github_blueprint
 
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -22,6 +21,8 @@ def register_blueprints(app):
     for module_name in ('authentication', 'home', 'dyn_dt'):
         module = import_module('apps.{}.routes'.format(module_name))
         app.register_blueprint(module.blueprint)
+
+from apps.authentication.oauth import github_blueprint
 
 def create_app(config):
 
