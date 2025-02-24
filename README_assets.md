@@ -1,3 +1,9 @@
 # Assets Management
 
-@Todo 
+## Flask-Minify
+
+@ToDo - compress css & pages 
+
+## Flask-CDN
+
+@ToDo - Enable CDN Support
