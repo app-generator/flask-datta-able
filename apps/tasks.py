@@ -10,10 +10,22 @@ from apps.config import *
 
 from celery import Celery
 from celery.utils.log import get_task_logger
+from celery.schedules import crontab
 
 logger = get_task_logger(__name__)
 
 celery_app = Celery(Config.CELERY_HOSTMACHINE, backend=Config.CELERY_RESULT_BACKEND, broker=Config.CELERY_BROKER_URL)
+
+
+celery_app.conf.beat_schedule = {
+    'run_celery_beat_test_every_minute': {
+        'task': 'celery_beat_test',
+        'schedule': crontab(minute='*/1'),  # Runs every 1 minute
+        'args': (json.dumps({'test': 'data'}),)
+    },
+}
+celery_app.conf.timezone = 'UTC'
+
 
 # task used for tests
 @celery_app.task(name="celery_test", bind=True)
@@ -79,4 +91,11 @@ def celery_test( self, task_input ):
     self.update_state(state='FINISHED',
                     meta={ 'info':'Task is finisled' })    
 
+    return task_json
+
+
+
+@celery_app.task(name="celery_beat_test", bind=True)
+def celery_beat_test( self, task_input ):
+    task_json = {'info': 'Beat is running'}
     return task_json

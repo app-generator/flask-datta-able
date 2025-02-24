@@ -29,7 +29,14 @@ class Config(object):
 
     # Enable/Disable Github Social Login    
     if GITHUB_ID and GITHUB_SECRET:
-         SOCIAL_AUTH_GITHUB  = True        
+         SOCIAL_AUTH_GITHUB  = True    
+
+    GOOGLE_ID      = os.getenv('GOOGLE_ID'    , None)
+    GOOGLE_SECRET  = os.getenv('GOOGLE_SECRET', None)
+
+    # Enable/Disable Google Social Login    
+    if GOOGLE_ID and GOOGLE_SECRET:
+         SOCIAL_AUTH_GOOGLE  = True    
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
@@ -72,6 +79,9 @@ class Config(object):
     DYNAMIC_DATATB = {
         "products": "apps.models.Product"
     }
+
+    CDN_DOMAIN = os.getenv('CDN_DOMAIN')
+    CDN_HTTPS = os.getenv('CDN_HTTPS', True)
 
 class ProductionConfig(Config):
     DEBUG = False
