@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.0.25] 2025-02-24
+### Changes
+
+- Codebase Refactoring
+
 ## [1.0.24] 2025-02-21
 ### Changes
 

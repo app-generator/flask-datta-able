@@ -3,20 +3,15 @@
 Copyright (c) 2019 - present AppSeed.us
 """
 
-import os, random, time, shutil
+import json, time
 from datetime import datetime
 
-
-import requests, json
-
-from apps import create_app
+from apps.config import *
 
 from celery import Celery
 from celery.utils.log import get_task_logger
 
 logger = get_task_logger(__name__)
-
-from apps.config import *
 
 celery_app = Celery(Config.CELERY_HOSTMACHINE, backend=Config.CELERY_RESULT_BACKEND, broker=Config.CELERY_BROKER_URL)
 
