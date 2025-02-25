@@ -26,15 +26,27 @@
                 </a>
               </div>
               
-              {% if has_github %}
-              <div class="text-center mt-4">
-                <a href="{{ url_for('github.login') }}" style="cursor: pointer;" class="d-inline-block p-2 rounded border text-secondary">
-                  <span class="pc-micon">
-                    <i data-feather="github"></i>
-                  </span>
-                </a>
+              <div class="d-flex justify-content-center align-items-center gap-2">
+                {% if has_github %}
+                <div class="text-center mt-4">
+                  <a href="{{ url_for('github.login') }}" style="cursor: pointer;" class="d-inline-block p-2 rounded border text-secondary">
+                    <span class="pc-micon">
+                      <i data-feather="github"></i>
+                    </span>
+                  </a>
+                </div>
+                {% endif %}
+  
+                {% if has_google %}
+                <div class="text-center mt-4">
+                  <a href="{{ url_for('google.login') }}" style="cursor: pointer;" class="d-inline-block p-2 rounded border text-secondary">
+                    <span class="pc-micon">
+                      <i class="fab fa-google"></i>
+                    </span>
+                  </a>
+                </div>
+                {% endif %}
               </div>
-              {% endif %}
 
               <h4 class="text-center f-w-500 mt-4 mb-3">Login</h4>
               <p class="text-center">

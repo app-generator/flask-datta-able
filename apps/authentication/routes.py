@@ -10,6 +10,7 @@ from flask_login import (
     logout_user
 )
 from flask_dance.contrib.github import github
+from flask_dance.contrib.google import google
 
 from apps import db, login_manager
 from apps.authentication import blueprint
@@ -30,6 +31,15 @@ def login_github():
     res = github.get("/user")
     return redirect(url_for('home_blueprint.index'))
 
+
+@blueprint.route("/google")
+def login_google():
+    """ Google login """
+    if not google.authorized:
+        return redirect(url_for("google.login"))
+
+    res = google.get("/oauth2/v1/userinfo")
+    return redirect(url_for('home_blueprint.index'))
 
 @blueprint.route('/login', methods=['GET', 'POST'])
 def login():
@@ -120,10 +130,12 @@ def logout():
 
 @blueprint.context_processor
 def has_github():
-    if Config.GITHUB_ID and Config.GITHUB_SECRET:
-        return {'has_github': True}
-    
-    return {'has_github': False}
+    return {'has_github': bool(Config.GITHUB_ID) and bool(Config.GITHUB_SECRET)}
+
+@blueprint.context_processor
+def has_google():
+    return {'has_google': bool(Config.GOOGLE_ID) and bool(Config.GOOGLE_SECRET)}
+
 
 @login_manager.unauthorized_handler
 def unauthorized_handler():
