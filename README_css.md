@@ -1,5 +1,8 @@
 # CSS Compilation
 
-Integrate Vite
+Integrate Vite using dev & build targets
 
-@ToDo
+- The `scss/custom.scss` -> compiled to `css/custom.css`
+- Minimize all `css/*.css` -> `css/*.min.css`
+- Add custom.css to the head.html (done)
+
