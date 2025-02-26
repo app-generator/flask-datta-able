@@ -36,51 +36,23 @@
                     <div class="card-header">
                         <h5>Edit Info</h5>
                     </div>
-                    <div class="card-block px-4">
-                        <form class="row" method="POST" action="{{ url_for('home_blueprint.profile') }}">
-                            <div class="col-sm-6 mb-4">
-                                <div class="form-group">
-                                    <label for="exampleInputUsername">Username</label>
-                                    <input class="form-control" id="exampleInputUsername" readonly 
-                                           value="{{ current_user.username }}" aria-describedby="userHelp" placeholder="Enter username">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 mb-4">
-                                <div class="form-group">
-                                    <label {% if not current_user.email %} class="text-danger" {% endif %} for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" readonly 
-                                           value="{{ current_user.email }}" aria-describedby="emailHelp" placeholder="Enter email">
-                                </div>
-                            </div>                                                
-                            <div class="col-sm-6 mb-4">
-                                <div class="form-group">
-                                    <label for="fn">First Name</label>
-                                    <input type="text" name="first_name" class="form-control" id="fn" 
-                                           value="{{ current_user.first_name or '' }}" placeholder="Your name">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 mb-4">
-                                <div class="form-group">
-                                    <label for="ln">Last Name</label>
-                                    <input type="text" name="last_name" class="form-control" id="ln" 
-                                           value="{{ current_user.last_name or '' }}" placeholder="Your last name">
-                                </div>
-                            </div>
-                            <div class="col-sm-12 mb-4">
-                                <div class="form-group">
-                                    <label for="add">Address</label>
-                                    <input type="text" name="address" class="form-control" id="add" 
-                                           value="{{ current_user.address or '' }}" placeholder="Full address here">
-                                    <small id="addd" class="form-text text-muted">This is your shipments address</small>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 mb-4">
-                                <div class="form-group">
-                                    <label for="abt">About Info</label>
-                                    <textarea name="bio" class="form-control" id="abt" placeholder="Bio">{{ current_user.bio or '' }}</textarea>
-                                    <small id="abf" class="form-text text-muted">We'll show this on your profile.</small>
-                                </div>
-                            </div>
+                    <div class="card-block px-4 pt-3">
+                        <form class="row" method="POST">
+                            {{ form.hidden_tag() }}
+
+                            {% for field in form %}
+                                {% if field.type in ['CSRFTokenField', 'HiddenField'] %}
+                                    {{ field() }}
+                                {% else %}
+                                    <div class="{% if field.name in full_width_fields %}col-sm-12{% else %}col-sm-6{% endif %}">
+                                        <div class="form-group">
+                                            <label for="" class="form-label">{{ field.name|replace_value("_") }} {% if field.name in readonly_fields %}(read-only){% endif %} </label>
+                                            {{ field(class_="form-control", readonly=True if field.name in readonly_fields else False) }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+
                             <div class="col-sm-12 mb-2">
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Submit</button>
