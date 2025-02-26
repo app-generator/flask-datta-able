@@ -1,3 +1,8 @@
+# -*- encoding: utf-8 -*-
+"""
+Copyright (c) 2019 - present AppSeed.us
+"""
+
 class Messages:
     message = {
         "wrong_user_or_password" : "Wrong user or password",

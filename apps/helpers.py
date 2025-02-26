@@ -1,7 +1,9 @@
-import os
-import re
-import uuid
-import re
+# -*- encoding: utf-8 -*-
+"""
+Copyright (c) 2019 - present AppSeed.us
+"""
+
+import os, re, uuid
 from colorama import Fore, Style
 from apps.authentication.models import Users
 from apps.config import Config

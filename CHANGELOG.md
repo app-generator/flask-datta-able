@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.0.26] 2025-02-26
+### Changes
+
+- Added:
+  - Celery Beat
+  - OAuth: GitHub, Google
+  - Flask-Minify
+
 ## [1.0.25] 2025-02-24
 ### Changes
 

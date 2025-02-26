@@ -14,7 +14,6 @@ from celery.schedules import crontab
 
 logger = get_task_logger(__name__)
 
-
 celery_app = Celery(Config.CELERY_HOSTMACHINE, backend=Config.CELERY_RESULT_BACKEND, broker=Config.CELERY_BROKER_URL)
 
 celery_app.conf.beat_schedule = {
@@ -92,7 +91,6 @@ def celery_test( self, task_input ):
                     meta={ 'info':'Task is finisled' })    
 
     return task_json
-
 
 
 @celery_app.task(name="celery_beat_test", bind=True)

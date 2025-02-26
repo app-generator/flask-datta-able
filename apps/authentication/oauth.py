@@ -25,8 +25,7 @@ github_blueprint = make_github_blueprint(
         db.session,
         user=current_user,
         user_required=False,        
-    ),
-   
+    ),   
 )
 
 @oauth_authorized.connect_via(github_blueprint)
@@ -57,9 +56,6 @@ def github_logged_in(blueprint, token):
 
             login_user(user)
 
-
-
-
 # Google
 
 google_blueprint = make_google_blueprint(
@@ -75,8 +71,7 @@ google_blueprint = make_google_blueprint(
         db.session,
         user=current_user,
         user_required=False,        
-    ),
-   
+    ),   
 )
 
 @oauth_authorized.connect_via(google_blueprint)
@@ -106,4 +101,3 @@ def google_logged_in(blueprint, token):
             db.session.commit()
 
             login_user(user)
-

@@ -136,7 +136,6 @@ def has_github():
 def has_google():
     return {'has_google': bool(Config.GOOGLE_ID) and bool(Config.GOOGLE_SECRET)}
 
-
 @login_manager.unauthorized_handler
 def unauthorized_handler():
     return redirect('/login')

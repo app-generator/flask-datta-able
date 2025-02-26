@@ -9,6 +9,7 @@ import binascii
 
 # Inspiration -> https://www.vitoshacademy.com/hashing-passwords-in-python/
 
+
 def hash_pass(password):
     """Hash a password for storing."""
 

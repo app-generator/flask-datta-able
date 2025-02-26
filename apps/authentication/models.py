@@ -9,7 +9,6 @@ from sqlalchemy.exc import SQLAlchemyError, IntegrityError
 from flask_dance.consumer.storage.sqla import OAuthConsumerMixin
 
 from apps import db, login_manager
-
 from apps.authentication.util import hash_pass
 
 class Users(db.Model, UserMixin):

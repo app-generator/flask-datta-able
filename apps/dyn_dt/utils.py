@@ -1,3 +1,8 @@
+# -*- encoding: utf-8 -*-
+"""
+Copyright (c) 2019 - present AppSeed.us
+"""
+
 import importlib
 from sqlalchemy import or_
 from sqlalchemy import DateTime, func
@@ -16,6 +21,7 @@ class HideShowFilter(db.Model):
     parent = db.Column(db.String(255), nullable=True)
     key = db.Column(db.String(255), nullable=False)
     value = db.Column(db.Boolean, default=False)
+
 
 class ModelFilter(db.Model):
     __tablename__ = 'model_filter'
