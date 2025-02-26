@@ -14,8 +14,8 @@ from celery.schedules import crontab
 
 logger = get_task_logger(__name__)
 
-celery_app = Celery(Config.CELERY_HOSTMACHINE, backend=Config.CELERY_RESULT_BACKEND, broker=Config.CELERY_BROKER_URL)
 
+celery_app = Celery(Config.CELERY_HOSTMACHINE, backend=Config.CELERY_RESULT_BACKEND, broker=Config.CELERY_BROKER_URL)
 
 celery_app.conf.beat_schedule = {
     'run_celery_beat_test_every_minute': {
