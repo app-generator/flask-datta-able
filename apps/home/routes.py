@@ -58,11 +58,12 @@ def getField(column):
 @blueprint.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
+
     class ProfileForm(FlaskForm):
         pass
 
     readonly_fields = Users.readonly_fields
-    full_width_fields = {"bio", "address"}
+    full_width_fields = {"bio"}
 
     for column in Users.__table__.columns:
         if column.name == "id":

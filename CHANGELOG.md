@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.0.27] 2025-02-27
+### Changes
+
+- User Profiles: Added Dynamic Management 
+
 ## [1.0.26] 2025-02-26
 ### Changes
 
