@@ -15,5 +15,5 @@ flask db migrate # Generate migration SQL
 flask db upgrade # Apply changes
 
 # Compile SCSS
-yarn 
-yarn build 
+# yarn 
+# yarn build 
