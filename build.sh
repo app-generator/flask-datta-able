@@ -13,3 +13,7 @@ pip install -r requirements.txt
 
 flask db migrate # Generate migration SQL
 flask db upgrade # Apply changes
+
+# Compile SCSS
+yarn 
+yarn build 

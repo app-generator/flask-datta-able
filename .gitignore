@@ -36,3 +36,4 @@ apps/static/assets/.temp
 #migrations
 
 node_modules/
+yarn.lock
