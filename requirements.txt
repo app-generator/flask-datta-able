@@ -1,7 +1,7 @@
 # core
 flask==3.1.0
 Werkzeug==3.1.3
-jinja2==3.1.5
+jinja2==3.1.6
 WTForms==3.2.1
 flask_wtf==1.2.2
 
