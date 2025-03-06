@@ -15,6 +15,22 @@ The product is designed to deliver the best possible user experience with highly
 
 <br />
 
+### Customize with [Flask App Generator](https://app-generator.dev/tools/flask-generator/)
+
+- Access the [App Generator](https://app-generator.dev/tools/flask-generator/) page
+- Select the preferred design
+- (Optional) Design Database: edit models and fields
+- (Optional) Edit the fields for the extended user model
+- (Optional) Enable OAuth for GitHub
+- (Optional) Add Celery (async tasks)
+- (Optional) Enable Dynamic Tables Module
+- Docker Scripts
+- Render CI/Cd Scripts
+
+**The generated Flask project is available as a ZIP Archive and also uploaded to GitHub.**
+
+<br />
+
 ## Deploy LIVE
 
 > One-click deploy (requires to have already an account).
