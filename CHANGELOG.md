@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.0.29] 2025-03-14
+### Changes
+
+- RM - Update [Flask App Generator](https://app-generator.dev/tools/flask-generator/) Section
+
 ## [1.0.28] 2025-03-06
 ### Changes
 

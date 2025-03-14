@@ -15,30 +15,6 @@ The product is designed to deliver the best possible user experience with highly
 
 <br />
 
-### Customize with [Flask App Generator](https://app-generator.dev/tools/flask-generator/)
-
-- Access the [App Generator](https://app-generator.dev/tools/flask-generator/) page
-- Select the preferred design
-- (Optional) Design Database: edit models and fields
-- (Optional) Edit the fields for the extended user model
-- (Optional) Enable OAuth for GitHub
-- (Optional) Add Celery (async tasks)
-- (Optional) Enable Dynamic Tables Module
-- Docker Scripts
-- Render CI/Cd Scripts
-
-**The generated Flask project is available as a ZIP Archive and also uploaded to GitHub.**
-
-<br />
-
-## Deploy LIVE
-
-> One-click deploy (requires to have already an account).
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
-
-<br />
-
 ## Features
 
 - Simple, Easy-to-Extend codebase, [Blueprint Pattern](https://app-generator.dev/blog/flask-blueprints-a-developers-guide/)
@@ -54,6 +30,34 @@ The product is designed to deliver the best possible user experience with highly
 - Deployment: Docker, Flask-Minify
 
 ![Flask Datta Able - Open-Source Flask Starter](https://user-images.githubusercontent.com/51070104/176118649-7233ffbc-6118-4f56-8cda-baa81d256877.png)
+
+<br />
+
+## Customize with [Flask Generator](https://app-generator.dev/tools/flask-generator/)
+
+- Access the [Flask Generator](https://app-generator.dev/tools/flask-generator/)
+- Select the preferred design
+- (Optional) Design Database: edit models and fields
+- (Optional) Edit the fields for the extended user model
+- (Optional) Enable OAuth for GitHub
+- (Optional) Add Celery (async tasks)
+- (Optional) Enable Dynamic Tables Module
+- Docker Scripts
+- Render CI/Cd Scripts
+
+**The generated Flask project is available as a ZIP Archive and also uploaded to GitHub.**
+
+![Flask Generator - Flask App Generator - User Interface for choosing the Design](https://github.com/user-attachments/assets/fbf73fc0-e9a1-4f01-86a8-aa8be55413b5) 
+
+![Flask App Generator - User Interface for Edit the Extended User Model](https://github.com/user-attachments/assets/138b9816-4f2e-454f-84f2-7409969b8548) 
+
+<br />
+
+## Deploy LIVE
+
+> One-click deploy (requires to have already an account).
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
 
 <br />
 
