@@ -33,7 +33,7 @@ The product is designed to deliver the best possible user experience with highly
 
 <br />
 
-## Customize with [Flask Generator](https://app-generator.dev/tools/flask-generator/)
+## `Customize` with [Flask Generator](https://app-generator.dev/tools/flask-generator/)
 
 - Access the [Flask Generator](https://app-generator.dev/tools/flask-generator/)
 - Select the preferred design
