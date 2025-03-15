@@ -41,6 +41,25 @@ The product is designed to deliver the best possible user experience with highly
 
 <br />
 
+## [Datta Able PRO Version](https://app-generator.dev/product/datta-able-pro/flask/)
+
+> The premium version provides more features, priority on support, and is more often updated - [Live Demo](https://flask-datta-pro.onrender.com/).
+
+- **Simple, Easy-to-Extend** Codebase
+- **Berry PRO** Design - Bootstrap 5 Design 
+- **Extended User Profiles**
+- [Charts](https://flask-datta-pro.onrender.com/charts/) 
+- [DataTables](https://flask-datta-pro.onrender.com/tables): Server-side Pagination, Search, Filters, Export
+- API
+- **File Manager**
+- **Celery** (async tasks)
+- **Docker**
+- **Deployment-Ready** for Render 
+
+![Datta Able PRO - Full-Stack Flask Starter provided by App-Generator.](https://user-images.githubusercontent.com/51070104/170474361-a58da82b-fff9-4a59-81a8-7ab99f478f48.png)
+
+<br />
+
 ## `Customize` with [Flask Generator](https://app-generator.dev/tools/flask-generator/)
 
 - Access the [Flask Generator](https://app-generator.dev/tools/flask-generator/)
@@ -58,25 +77,6 @@ The product is designed to deliver the best possible user experience with highly
 ![Flask Generator - Flask App Generator - User Interface for choosing the Design](https://github.com/user-attachments/assets/fbf73fc0-e9a1-4f01-86a8-aa8be55413b5) 
 
 ![Flask App Generator - User Interface for Edit the Extended User Model](https://github.com/user-attachments/assets/138b9816-4f2e-454f-84f2-7409969b8548) 
-
-<br />
-
-## [Datta Able PRO Version](https://app-generator.dev/product/datta-able-pro/flask/)
-
-> The premium version provides more features, priority on support, and is more often updated - [Live Demo](https://flask-datta-pro.onrender.com/).
-
-- **Simple, Easy-to-Extend** Codebase
-- **Berry PRO** Design - Bootstrap 5 Design 
-- **Extended User Profiles**
-- [Charts](https://flask-datta-pro.onrender.com/charts/) 
-- [DataTables](https://flask-datta-pro.onrender.com/tables): Server-side Pagination, Search, Filters, Export
-- API
-- **File Manager**
-- **Celery** (async tasks)
-- **Docker**
-- **Deployment-Ready** for Render 
-
-![Datta Able PRO - Full-Stack Flask Starter provided by App-Generator.](https://user-images.githubusercontent.com/51070104/170474361-a58da82b-fff9-4a59-81a8-7ab99f478f48.png)
 
 <br />
 
