@@ -46,7 +46,7 @@ The product is designed to deliver the best possible user experience with highly
 > The premium version provides more features, priority on support, and is more often updated - [Live Demo](https://flask-datta-pro.onrender.com/).
 
 - **Simple, Easy-to-Extend** Codebase
-- **Berry PRO** Design - Bootstrap 5 Design 
+- **Datta Able PRO** Design - Premium Version 
 - **Extended User Profiles**
 - [Charts](https://flask-datta-pro.onrender.com/charts/) 
 - [DataTables](https://flask-datta-pro.onrender.com/tables): Server-side Pagination, Search, Filters, Export
