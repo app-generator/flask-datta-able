@@ -38,6 +38,9 @@ def sample_page():
 def typography():
     return render_template('pages/typography.html', segment='typography')
 
+@blueprint.route('/charts')
+def charts():
+    return render_template('pages/charts.html', segment='charts')
 
 def getField(column): 
     if isinstance(column.type, db.Text):
