@@ -39,6 +39,10 @@ class Product(db.Model):
     def find_by_id(cls, _id: int) -> "Product":
         return cls.query.filter_by(id=_id).first() 
 
+    @classmethod
+    def get_list(cls):
+        return cls.query.all()
+
     def save(self) -> None:
         try:
             db.session.add(self)
