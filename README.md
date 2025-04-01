@@ -18,7 +18,6 @@ The product is designed to deliver the best possible user experience with highly
 ## Features
 
 - Simple, Easy-to-Extend codebase, [Blueprint Pattern](https://app-generator.dev/blog/flask-blueprints-a-developers-guide/)
-- Up-to-date Dependencies
 - [Datta Able](https://app-generator.dev/docs/templates/bootstrap/datta-able.html) Full Integration
 - [Bootstrap](https://app-generator.dev/docs/templates/bootstrap/index.html) 5 Styling
 - Auth: Session Based, GitHub, Google
