@@ -20,13 +20,13 @@ The product is designed to deliver the best possible user experience with highly
 - Simple, Easy-to-Extend codebase, [Blueprint Pattern](https://app-generator.dev/blog/flask-blueprints-a-developers-guide/)
 - [Datta Able](https://app-generator.dev/docs/templates/bootstrap/datta-able.html) Full Integration
 - [Bootstrap](https://app-generator.dev/docs/templates/bootstrap/index.html) 5 Styling
-- Auth: Session Based, GitHub, Google
-- Celery Beat 
-- DB Persistence: SQLite (default), 
-  - Easy switch to MySql/MariaDB, PgSql
+- Session-based Authentication, GitHub, Google
+- DB Persistence: SQLite (default), can be used with MySql, PgSql
 - [Dynamic DataTables](https://flask-datta-demo.onrender.com/dynamic-dt) - manage data without coding
-- CI/CD integration for [Render](https://app-generator.dev/docs/deployment/render/index.html)
-- Deployment: Docker, Flask-Minify
+- **Charts** by ApexCharts
+- Celery Beat 
+- Docker, CI/CD for Render
+- [Vite](https://app-generator.dev/docs/technologies/vite/index.html) for assets management 
 
 ![Flask Datta Able - Open-Source Flask Starter](https://user-images.githubusercontent.com/51070104/176118649-7233ffbc-6118-4f56-8cda-baa81d256877.png)
 
@@ -49,7 +49,6 @@ The product is designed to deliver the best possible user experience with highly
 - **Extended User Profiles**
 - [Charts](https://flask-datta-pro.onrender.com/charts/) 
 - [DataTables](https://flask-datta-pro.onrender.com/tables): Server-side Pagination, Search, Filters, Export
-- API
 - **File Manager**
 - **Celery** (async tasks)
 - **Docker**

@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.0.30] 2025-04-03
+### Changes
+
+- Codebase Refactoring
+- Added Charts
+- Update Documentation
+
 ## [1.0.29] 2025-03-14
 ### Changes
 
