@@ -38,11 +38,6 @@ def sample_page():
 def typography():
     return render_template('pages/typography.html', segment='typography')
 
-@blueprint.route('/charts')
-def charts():
-    products = [{'name': product.name, 'price': product.price} for product in Product.get_list()]
-    return render_template('pages/charts.html', segment='charts', products=products)
-
 def getField(column): 
     if isinstance(column.type, db.Text):
         return wtforms.TextAreaField(column.name.title())
