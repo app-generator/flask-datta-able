@@ -1,6 +1,6 @@
 # [Flask Datta Able](https://app-generator.dev/product/datta-able/flask/)
 
-Open-source **Flask** project crafted on top of **Datta Able Dashboard**, an open-source `Bootstrap` design.
+**Open-source Flask Starter** crafted on top of **[Datta Able](https://app-generator.dev/product/datta-able/)**, an open-source `Bootstrap` UI Kit released by [CodedThemes](https://app-generator.dev/agency/codedthemes/).
 The product is designed to deliver the best possible user experience with highly customizable feature-rich pages. 
 
 - 👉 [Flask Datta Able](https://app-generator.dev/product/datta-able/flask/) - `Product Page`
@@ -18,7 +18,7 @@ The product is designed to deliver the best possible user experience with highly
 ## Features
 
 - Simple, Easy-to-Extend codebase, [Blueprint Pattern](https://app-generator.dev/blog/flask-blueprints-a-developers-guide/)
-- [Datta Able](https://app-generator.dev/docs/templates/bootstrap/datta-able.html) Full Integration
+- [Datta Able](https://app-generator.dev/product/datta-able/) Design Integration 
 - [Bootstrap](https://app-generator.dev/docs/templates/bootstrap/index.html) 5 Styling
 - Session-based Authentication, GitHub, Google
 - DB Persistence: SQLite (default), can be used with MySql, PgSql
