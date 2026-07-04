@@ -1,6 +1,6 @@
-## [Flask Datta Able](https://app-generator.dev/product/datta-able/flask/)
+## [Flask Datta Able](https://app-generator.dev/product/)
 
-**Admin Dashboard** built in [Flask and Datta Able Design](https://app-generator.dev/product/datta-able/flask/), the premium version. The codebase fully integrates the design and provides out-of-the-box: Charts, Server-Side DataTables, Async Tasks (celery), Media Files Manager, and Docker Support.
+**Admin Dashboard** built in Flask and Datta Able Design, the premium version. The codebase fully integrates the design and provides out-of-the-box: Charts, Server-Side DataTables, Async Tasks (celery), Media Files Manager, and Docker Support.
 
 > Provided by [App-Generator](https://app-generator.dev/) - **Helping entrepreneurs build products with continuous human support**
  
